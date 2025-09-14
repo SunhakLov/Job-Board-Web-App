@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechJobs - Professional Job Board</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.0/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="./styles/main.css" rel="stylesheet">
+  <link href="./styles/components.css" rel="stylesheet">
+  <link href="./styles/utilities.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- COMPONENT: Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-container">
+          <div class="logo-icon">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <h1 class="logo-text">TechJobs</h1>
+        </div>
+        <nav class="nav-menu hidden md:flex">
+          <a href="#jobs" class="nav-item">Jobs</a>
+          <a href="#companies" class="nav-item">Companies</a>
+          <a href="#about" class="nav-item">About</a>
+        </nav>
+        <div class="header-actions">
+          <button class="btn-secondary px-4 py-2 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50 transition">Sign In</button>
+          <button class="btn-primary px-4 py-2 text-white rounded-lg">Post Job</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- COMPONENT: Hero Section -->
+  <section class="hero-section hero-pattern">
+    <div class="container hero-content">
+      <h2 class="hero-title">Find Your Dream Tech Job</h2>
+      <p class="hero-subtitle">Connect with top companies and advance your career</p>
+      <div class="max-w-2xl mx-auto">
+        <div class="search-box search-container">
+          <div class="flex-1 flex items-center">
+            <i class="fas fa-search text-gray-400 ml-3 mr-2"></i>
+            <input type="text" placeholder="Job title, keywords..." class="search-input">
+          </div>
+          <div class="search-divider"></div>
+          <div class="flex items-center px-4">
+            <i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
+            <input type="text" placeholder="Location" class="search-location">
+          </div>
+          <button class="search-button">
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPONENT: Filter Bar -->
+  <section class="filter-bar">
+    <div class="container">
+      <div class="filter-content">
+        <div class="flex items-center space-x-2">
+          <span class="filter-label">Filter by:</span>
+        </div>
+        <select class="filter-select">
+          <option>All Job Types</option>
+          <option>Full-time</option>
+          <option>Part-time</option>
+          <option>Contract</option>
+          <option>Remote</option>
+        </select>
+        <select class="filter-select">
+          <option>All Experience</option>
+          <option>Entry Level</option>
+          <option>Mid Level</option>
+          <option>Senior Level</option>
+        </select>
+        <select class="filter-select">
+          <option>All Salaries</option>
+          <option>$50k - $80k</option>
+          <option>$80k - $120k</option>
+          <option>$120k+</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <div class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- COMPONENT: Job Listings -->
+      <section id="job-listings" class="job-listings lg:col-span-2">
+        <div class="listings-header">
+          <h2 class="listings-title">Latest Jobs</h2>
+          <span class="listings-count">245 jobs found</span>
+        </div>
+        
+        <div class="job-list">
+          <!-- COMPONENT: Job Card -->
+          <div class="job-card fade-in">
+            <div class="job-header">
+              <div class="job-info">
+                <div class="job-logo bg-blue-100 text-blue-600">
+                  <i class="fas fa-code"></i>
+                </div>
+                <div class="job-details">
+                  <h3>Senior Frontend Developer</h3>
+                  <p class="job-company">TechCorp Inc.</p>
+                </div>
+              </div>
+              <div class="job-actions">
+                <button class="favorite-btn">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="apply-btn" onclick="showDetails('frontend')">
+                  Apply Now
+                </button>
+              </div>
+            </div>
+            <div class="job-tags">
+              <span class="job-tag status-remote">Remote</span>
+              <span class="job-tag status-fulltime">Full-time</span>
+              <span class="job-tag status-badge bg-purple-100 text-purple-800">$120k - $150k</span>
+            </div>
+            <p class="job-description">Build modern web interfaces using React, TypeScript, and Tailwind CSS. Work with a dynamic team on cutting-edge projects.</p>
+            <div class="job-footer">
+              <div class="job-meta">
+                <span><i class="fas fa-map-marker-alt"></i>San Francisco, CA</span>
+                <span><i class="fas fa-clock"></i>2 days ago</span>
+              </div>
+              <span>200+ applicants</span>
+            </div>
+          </div>
+
+          <div class="job-card slide-up">
+            <div class="job-header">
+              <div class="job-info">
+                <div class="job-logo bg-green-100 text-green-600">
+                  <i class="fas fa-server"></i>
+                </div>
+                <div class="job-details">
+                  <h3>Backend Engineer</h3>
+                  <p class="job-company">DataFlow Solutions</p>
+                </div>
+              </div>
+              <div class="job-actions">
+                <button class="favorite-btn">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="apply-btn" onclick="showDetails('backend')">
+                  Apply Now
+                </button>
+              </div>
+            </div>
+            <div class="job-tags">
+              <span class="job-tag status-onsite">On-site</span>
+              <span class="job-tag status-fulltime">Full-time</span>
+              <span class="job-tag status-badge bg-purple-100 text-purple-800">$100k - $130k</span>
+            </div>
+            <p class="job-description">Design scalable APIs and work with cloud infrastructure. Experience with Node.js, Python, and AWS required.</p>
+            <div class="job-footer">
+              <div class="job-meta">
+                <span><i class="fas fa-map-marker-alt"></i>New York, NY</span>
+                <span><i class="fas fa-clock"></i>1 week ago</span>
+              </div>
+              <span>150+ applicants</span>
+            </div>
+          </div>
+
+          <div class="job-card slide-in-right">
+            <div class="job-header">
+              <div class="job-info">
+                <div class="job-logo bg-pink-100 text-pink-600">
+                  <i class="fas fa-palette"></i>
+                </div>
+                <div class="job-details">
+                  <h3>UI/UX Designer</h3>
+                  <p class="job-company">Creative Studio</p>
+                </div>
+              </div>
+              <div class="job-actions">
+                <button class="favorite-btn">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="apply-btn" onclick="showDetails('designer')">
+                  Apply Now
+                </button>
+              </div>
+            </div>
+            <div class="job-tags">
+              <span class="job-tag status-remote">Remote</span>
+              <span class="job-tag status-contract">Contract</span>
+              <span class="job-tag status-badge bg-purple-100 text-purple-800">$80k - $100k</span>
+            </div>
+            <p class="job-description">Craft intuitive user experiences for web and mobile applications. Portfolio and Figma expertise required.</p>
+            <div class="job-footer">
+              <div class="job-meta">
+                <span><i class="fas fa-map-marker-alt"></i>Los Angeles, CA</span>
+                <span><i class="fas fa-clock"></i>3 days ago</span>
+              </div>
+              <span>75+ applicants</span>
+            </div>
+          </div>
+
+          <!-- Load More Button -->
+          <div class="text-center mt-8">
+            <button class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition">
+              Load More Jobs
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPONENT: Sidebar -->
+      <aside class="sidebar lg:col-span-1">
+        <!-- COMPONENT: Quick Apply Form -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">Quick Apply</h3>
+          <form class="quick-apply-form" id="jobAppForm">
+            <div class="form-group">
+              <label class="form-label" for="name">Full Name</label>
+              <input class="form-input" type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input class="form-input" type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="position">Position</label>
+              <select class="form-input" id="position" name="position" required>
+                <option value="">Select a position</option>
+                <option value="Frontend Developer">Frontend Developer</option>
+                <option value="Backend Engineer">Backend Engineer</option>
+                <option value="UI/UX Designer">UI/UX Designer</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="resume">Resume</label>
+              <div class="file-upload file-upload-zone">
+                <i class="file-upload-icon fas fa-cloud-upload-alt"></i>
+                <p class="file-upload-text">Drop your resume here or <span class="text-blue-600 cursor-pointer">browse</span></p>
+                <input type="file" class="hidden" id="resume" name="resume" accept=".pdf,.doc,.docx">
+              </div>
+            </div>
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane"></i>Submit Application
+            </button>
+          </form>
+          <div id="formSuccess" class="success-message hidden">
+            <i class="fas fa-check-circle"></i>Application submitted successfully!
+          </div>
+        </div>
+
+        <!-- COMPONENT: Job Categories -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">Popular Categories</h3>
+          <div class="category-list">
+            <a href="#" class="category-item">
+              <div class="category-info">
+                <i class="category-icon fas fa-code text-blue-600"></i>
+                <span class="category-name">Software Development</span>
+              </div>
+              <span class="category-count">142 jobs</span>
+            </a>
+            <a href="#" class="category-item">
+              <div class="category-info">
+                <i class="category-icon fas fa-palette text-pink-600"></i>
+                <span class="category-name">Design</span>
+              </div>
+              <span class="category-count">89 jobs</span>
+            </a>
+            <a href="#" class="category-item">
+              <div class="category-info">
+                <i class="category-icon fas fa-chart-line text-green-600"></i>
+                <span class="category-name">Marketing</span>
+              </div>
+              <span class="category-count">64 jobs</span>
+            </a>
+            <a href="#" class="category-item">
+              <div class="category-info">
+                <i class="category-icon fas fa-users text-purple-600"></i>
+                <span class="category-name">Sales</span>
+              </div>
+              <span class="category-count">52 jobs</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- COMPONENT: Featured Companies -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">Featured Companies</h3>
+          <div class="company-list">
+            <div class="company-item">
+              <div class="company-logo bg-blue-600">TC</div>
+              <div class="company-info">
+                <h4>TechCorp Inc.</h4>
+                <p>15 open positions</p>
+              </div>
+            </div>
+            <div class="company-item">
+              <div class="company-logo bg-green-600">DF</div>
+              <div class="company-info">
+                <h4>DataFlow Solutions</h4>
+                <p>8 open positions</p>
+              </div>
+            </div>
+            <div class="company-item">
+              <div class="company-logo bg-purple-600">CS</div>
+              <div class="company-info">
+                <h4>Creative Studio</h4>
+                <p>12 open positions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- COMPONENT: Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="logo-container mb-4">
+            <div class="logo-icon bg-blue-600">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <h3>TechJobs</h3>
+          </div>
+          <p>Connecting talented professionals with amazing opportunities.</p>
+        </div>
+        <div class="footer-section">
+          <h4>For Job Seekers</h4>
+          <div class="footer-links">
+            <a href="#">Browse Jobs</a>
+            <a href="#">Career Advice</a>
+            <a href="#">Resume Builder</a>
+            <a href="#">Salary Guide</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>For Employers</h4>
+          <div class="footer-links">
+            <a href="#">Post a Job</a>
+            <a href="#">Browse Resumes</a>
+            <a href="#">Employer Plans</a>
+            <a href="#">Recruiting Tools</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Company</h4>
+          <div class="footer-links">
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 TechJobs. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- COMPONENT: Job Details Modal -->
+  <div id="jobModal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="modal-header">
+        <div id="modalContent" class="modal-body"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPONENT: Scripts -->
+  <script src="./js/main.js"></script>
+    </div>
+  </div>
+</body>
+</html>
