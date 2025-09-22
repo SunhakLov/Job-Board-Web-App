@@ -143,13 +143,6 @@ python -m http.server 8000
 - **Admin Panel**: Job posting and management interface
 - **Analytics**: Track job views and application rates
 
-## 📄 Browser Support
-
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-
 ## 📝 License
 
 This project is open source and available under the [MIT License](LICENSE).
