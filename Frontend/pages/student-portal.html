@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal - JobConnect</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.0/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="../styles/main.css" rel="stylesheet">
+  <link href="../styles/components.css" rel="stylesheet">
+  <link href="../styles/utilities.css" rel="stylesheet">
+  <style>
+    /* Cal Poly Pomona Color Scheme */
+    :root {
+      --cpp-primary: #1e3d2b;        /* Forest Green - Primary */
+      --cpp-secondary: #2d5a3f;      /* Medium Forest Green */
+      --cpp-light: #4a7c59;          /* Light Forest Green */
+      --cpp-lighter: #6ba576;        /* Lighter Forest Green */
+      --cpp-lightest: #8bc896;       /* Lightest Forest Green */
+      --cpp-dark: #0f2117;           /* Dark Forest Green */
+    }
+    
+    /* Modern Background Gradient */
+    .bg-gradient-modern {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+      min-height: 100vh;
+    }
+    
+    /* Glassmorphism Effect */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Smooth Animations */
+    .animate-fade-in {
+      animation: fadeInUp 0.6s ease-out;
+    }
+    
+    .animate-slide-in {
+      animation: slideInRight 0.8s ease-out;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    /* Enhanced Button Styles */
+    .btn-cpp-primary {
+      background: linear-gradient(135deg, var(--cpp-primary), var(--cpp-secondary));
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(30, 61, 43, 0.2);
+    }
+    
+    .btn-cpp-primary:hover {
+      background: linear-gradient(135deg, var(--cpp-secondary), var(--cpp-light));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(30, 61, 43, 0.3);
+    }
+    
+    /* Card Hover Effects */
+    .hover-lift {
+      transition: all 0.3s ease;
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Progress Bars */
+    .progress-bar {
+      background: linear-gradient(90deg, var(--cpp-light), var(--cpp-lighter));
+    }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: var(--cpp-light);
+      border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--cpp-primary);
+    }
+  </style>
+</head>
+<<body class="bg-gradient-modern font-inter">
+  <!-- MODERN HEADER -->
+  <header class="glass-card rounded-none border-b-2 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <!-- Logo & Branding -->
+        <div class="flex items-center space-x-4">
+          <a href="../index.html" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg" style="background: linear-gradient(135deg, var(--cpp-primary), var(--cpp-secondary));">
+              <i class="fas fa-briefcase text-white text-xl"></i>
+            </div>
+            <div>
+              <h1 class="text-xl font-bold" style="color: var(--cpp-primary);">JobConnect</h1>
+              <p class="text-xs text-gray-500 -mt-1">Student Portal</p>
+            </div>
+          </a>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="hidden md:flex items-center space-x-8">
+          <a href="#dashboard" class="text-gray-600 hover:text-gray-900 font-medium transition-colors">Dashboard</a>
+          <a href="#jobs" class="text-gray-600 hover:text-gray-900 font-medium transition-colors">Find Jobs</a>
+          <a href="#applications" class="text-gray-600 hover:text-gray-900 font-medium transition-colors">Applications</a>
+          <a href="#profile" class="text-gray-600 hover:text-gray-900 font-medium transition-colors">Profile</a>
+        </nav>
+        
+        <!-- User Actions -->
+        <div class="flex items-center space-x-4">
+          <div class="relative">
+            <button class="p-2 text-gray-600 hover:text-gray-900 relative">
+              <i class="fas fa-bell text-xl"></i>
+              <span class="absolute -top-1 -right-1 w-5 h-5 rounded-full text-xs flex items-center justify-center text-white" style="background: var(--cpp-primary);">3</span>
+            </button>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-full overflow-hidden" style="background: linear-gradient(135deg, var(--cpp-light), var(--cpp-lighter));">
+              <img src="https://ui-avatars.com/api/?name=Student&background=4a7c59&color=fff" alt="Profile" class="w-full h-full object-cover">
+            </div>
+            <div class="hidden sm:block">
+              <p class="text-sm font-semibold text-gray-900">Welcome, Student</p>
+              <p class="text-xs text-gray-500">Computer Science '24</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN DASHBOARD CONTENT -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Welcome Section -->
+    <section class="mb-8 animate-fade-in">
+      <div class="glass-card rounded-3xl p-8 hover-lift">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="mb-6 md:mb-0">
+            <h2 class="text-3xl font-bold text-gray-900 mb-2">Good Morning, Bronco! 🌟</h2>
+            <p class="text-gray-600 text-lg">Ready to find your next opportunity? You have <span class="font-semibold" style="color: var(--cpp-primary);">3 new job matches</span> waiting for you.</p>
+          </div>
+          <div class="flex space-x-4">
+            <button class="btn-cpp-primary px-6 py-3 rounded-xl text-white font-semibold flex items-center space-x-2">
+              <i class="fas fa-search"></i>
+              <span>Search Jobs</span>
+            </button>
+            <button class="px-6 py-3 border-2 rounded-xl font-semibold transition-all hover:shadow-lg" style="border-color: var(--cpp-primary); color: var(--cpp-primary);">
+              <i class="fas fa-upload mr-2"></i>
+              Upload Resume
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Stats Dashboard -->
+    <section class="mb-8 animate-slide-in">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Applications Stat -->
+        <div class="glass-card rounded-2xl p-6 hover-lift">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(74, 124, 89, 0.1);">
+              <i class="fas fa-paper-plane" style="color: var(--cpp-light);"></i>
+            </div>
+            <span class="text-xs px-3 py-1 rounded-full bg-green-100 text-green-800 font-medium">+2 this week</span>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-1">12</h3>
+          <p class="text-gray-600 text-sm">Applications Sent</p>
+        </div>
+
+        <!-- Interviews Stat -->
+        <div class="glass-card rounded-2xl p-6 hover-lift">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(74, 124, 89, 0.1);">
+              <i class="fas fa-calendar-check" style="color: var(--cpp-light);"></i>
+            </div>
+            <span class="text-xs px-3 py-1 rounded-full bg-blue-100 text-blue-800 font-medium">1 upcoming</span>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-1">3</h3>
+          <p class="text-gray-600 text-sm">Interviews Scheduled</p>
+        </div>
+
+        <!-- Saved Jobs -->
+        <div class="glass-card rounded-2xl p-6 hover-lift">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(74, 124, 89, 0.1);">
+              <i class="fas fa-heart" style="color: var(--cpp-light);"></i>
+            </div>
+            <span class="text-xs px-3 py-1 rounded-full bg-purple-100 text-purple-800 font-medium">5 new</span>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-1">24</h3>
+          <p class="text-gray-600 text-sm">Saved Jobs</p>
+        </div>
+
+        <!-- Profile Views -->
+        <div class="glass-card rounded-2xl p-6 hover-lift">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(74, 124, 89, 0.1);">
+              <i class="fas fa-eye" style="color: var(--cpp-light);"></i>
+            </div>
+            <span class="text-xs px-3 py-1 rounded-full bg-orange-100 text-orange-800 font-medium">Growing</span>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-1">89</h3>
+          <p class="text-gray-600 text-sm">Profile Views</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Left Column - Job Recommendations -->
+      <div class="lg:col-span-2 space-y-8">
+        <!-- Job Recommendations -->
+        <section class="animate-fade-in">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-2xl font-bold text-gray-900">Recommended for You</h3>
+            <a href="#" class="text-sm font-medium hover:underline" style="color: var(--cpp-primary);">View All</a>
+          </div>
+          
+          <div class="space-y-4">
+            <!-- Job Card 1 -->
+            <div class="glass-card rounded-2xl p-6 hover-lift">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center space-x-4">
+                  <div class="w-14 h-14 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #4285F4, #34A853);">
+                    <span class="text-white font-bold text-lg">G</span>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-gray-900">Software Engineer Intern</h4>
+                    <p class="text-gray-600">Google • Mountain View, CA</p>
+                    <div class="flex items-center space-x-4 mt-2">
+                      <span class="text-sm px-3 py-1 rounded-full bg-green-100 text-green-800 font-medium">Full-time</span>
+                      <span class="text-sm text-gray-500">Posted 2 days ago</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col items-end">
+                  <p class="text-lg font-bold text-gray-900 mb-2">$120K - $180K</p>
+                  <div class="flex space-x-2">
+                    <button class="p-2 text-gray-500 hover:text-red-500 transition-colors">
+                      <i class="fas fa-heart"></i>
+                    </button>
+                    <button class="btn-cpp-primary px-4 py-2 rounded-lg text-white text-sm font-medium">
+                      Apply Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <p class="text-gray-700 mb-4">Join Google's engineering team and work on products used by billions of people. We're looking for passionate developers to help us build the future.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs px-3 py-1 rounded-full" style="background: rgba(74, 124, 89, 0.1); color: var(--cpp-primary);">React</span>
+                <span class="text-xs px-3 py-1 rounded-full" style="background: rgba(74, 124, 89, 0.1); color: var(--cpp-primary);">Python</span>
+                <span class="text-xs px-3 py-1 rounded-full" style="background: rgba(74, 124, 89, 0.1); color: var(--cpp-primary);">Machine Learning</span>
+                <span class="text-xs px-3 py-1 rounded-full" style="background: rgba(74, 124, 89, 0.1); color: var(--cpp-primary);">JavaScript</span>
+              </div>
+            </div>
+
+            <!-- Job Card 2 -->
+            <div class="glass-card rounded-2xl p-6 hover-lift">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center space-x-4">
+                  <div class="w-14 h-14 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #FF6B6B, #FF8E53);">
+                    <span class="text-white font-bold text-lg">T</span>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-gray-900">Product Manager</h4>
+                    <p class="text-gray-600">Tesla • Remote</p>
+                    <div class="flex items-center space-x-4 mt-2">
+                      <span class="text-sm px-3 py-1 rounded-full bg-blue-100 text-blue-800 font-medium">Remote</span>
+                      <span class="text-sm text-gray-500">Posted 1 day ago</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col items-end">
+                  <p class="text-lg font-bold text-gray-900 mb-2">$90K - $130K</p>
+                  <div class="flex space-x-2">
+                    <button class="p-2 text-red-500 hover:text-red-600 transition-colors">
+                      <i class="fas fa-heart"></i>
+                    </button>
+                    <button class="btn-cpp-primary px-4 py-2 rounded-lg text-white text-sm font-medium">
+                      Apply Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <p class="text-gray-700 mb-4">Lead product development for Tesla's next-generation software platform. Work with cutting-edge technology in autonomous vehicles.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs px-3 py-1 rounded-full" style="background: rgba(74, 124, 89, 0.1); color: var(--cpp-primary);">Product Strategy</span>
+                <span class="text-xs px-3 py-1 rounded-full" style="background: rgba(74, 124, 89, 0.1); color: var(--cpp-primary);">Agile</span>
+                <span class="text-xs px-3 py-1 rounded-full" style="background: rgba(74, 124, 89, 0.1); color: var(--cpp-primary);">Analytics</span>
+              </div>
+            </div>
+
+            <!-- Job Card 3 -->
+            <div class="glass-card rounded-2xl p-6 hover-lift">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center space-x-4">
+                  <div class="w-14 h-14 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    <span class="text-white font-bold text-lg">M</span>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-gray-900">UX Designer</h4>
+                    <p class="text-gray-600">Microsoft • Seattle, WA</p>
+                    <div class="flex items-center space-x-4 mt-2">
+                      <span class="text-sm px-3 py-1 rounded-full bg-purple-100 text-purple-800 font-medium">Hybrid</span>
+                      <span class="text-sm text-gray-500">Posted 3 days ago</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col items-end">
+                  <p class="text-lg font-bold text-gray-900 mb-2">$85K - $115K</p>
+                  <div class="flex space-x-2">
+                    <button class="p-2 text-gray-500 hover:text-red-500 transition-colors">
+                      <i class="fas fa-heart"></i>
+                    </button>
+                    <button class="btn-cpp-primary px-4 py-2 rounded-lg text-white text-sm font-medium">
+                      Apply Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <p class="text-gray-700 mb-4">Design intuitive user experiences for Microsoft Office suite. Collaborate with cross-functional teams to create world-class products.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs px-3 py-1 rounded-full" style="background: rgba(74, 124, 89, 0.1); color: var(--cpp-primary);">Figma</span>
+                <span class="text-xs px-3 py-1 rounded-full" style="background: rgba(74, 124, 89, 0.1); color: var(--cpp-primary);">User Research</span>
+                <span class="text-xs px-3 py-1 rounded-full" style="background: rgba(74, 124, 89, 0.1); color: var(--cpp-primary);">Prototyping</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Right Column - Sidebar -->
+      <div class="space-y-8">
+        <!-- Quick Actions -->
+        <section class="animate-slide-in">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Quick Actions</h3>
+          <div class="glass-card rounded-2xl p-6 space-y-4">
+            <button class="w-full flex items-center space-x-3 p-4 rounded-xl transition-all hover:shadow-lg" style="background: rgba(74, 124, 89, 0.05); border: 1px solid rgba(74, 124, 89, 0.1);">
+              <i class="fas fa-search" style="color: var(--cpp-primary);"></i>
+              <span class="font-medium text-gray-900">Advanced Job Search</span>
+            </button>
+            <button class="w-full flex items-center space-x-3 p-4 rounded-xl transition-all hover:shadow-lg" style="background: rgba(74, 124, 89, 0.05); border: 1px solid rgba(74, 124, 89, 0.1);">
+              <i class="fas fa-file-alt" style="color: var(--cpp-primary);"></i>
+              <span class="font-medium text-gray-900">Resume Builder</span>
+            </button>
+            <button class="w-full flex items-center space-x-3 p-4 rounded-xl transition-all hover:shadow-lg" style="background: rgba(74, 124, 89, 0.05); border: 1px solid rgba(74, 124, 89, 0.1);">
+              <i class="fas fa-calendar" style="color: var(--cpp-primary);"></i>
+              <span class="font-medium text-gray-900">Schedule Mock Interview</span>
+            </button>
+            <button class="w-full flex items-center space-x-3 p-4 rounded-xl transition-all hover:shadow-lg" style="background: rgba(74, 124, 89, 0.05); border: 1px solid rgba(74, 124, 89, 0.1);">
+              <i class="fas fa-graduation-cap" style="color: var(--cpp-primary);"></i>
+              <span class="font-medium text-gray-900">Career Resources</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Profile Completion -->
+        <section>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Profile Completion</h3>
+          <div class="glass-card rounded-2xl p-6">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-sm font-medium text-gray-700">75% Complete</span>
+              <span class="text-sm text-gray-500">3 steps remaining</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+              <div class="progress-bar h-3 rounded-full" style="width: 75%;"></div>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-check-circle text-green-500"></i>
+                <span class="text-sm text-gray-700">Profile photo uploaded</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-check-circle text-green-500"></i>
+                <span class="text-sm text-gray-700">Resume uploaded</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-circle text-gray-300"></i>
+                <span class="text-sm text-gray-500">Add work experience</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-circle text-gray-300"></i>
+                <span class="text-sm text-gray-500">Complete skills section</span>
+              </div>
+            </div>
+            <button class="w-full mt-4 btn-cpp-primary py-3 rounded-xl text-white font-medium">
+              Complete Profile
+            </button>
+          </div>
+        </section>
+
+        <!-- Recent Activity -->
+        <section>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Recent Activity</h3>
+          <div class="glass-card rounded-2xl p-6 space-y-4">
+            <div class="flex items-center space-x-3 pb-3 border-b border-gray-100">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background: rgba(74, 124, 89, 0.1);">
+                <i class="fas fa-paper-plane text-xs" style="color: var(--cpp-primary);"></i>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-medium text-gray-900">Applied to Google</p>
+                <p class="text-xs text-gray-500">2 hours ago</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3 pb-3 border-b border-gray-100">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background: rgba(74, 124, 89, 0.1);">
+                <i class="fas fa-heart text-xs" style="color: var(--cpp-primary);"></i>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-medium text-gray-900">Saved Tesla position</p>
+                <p class="text-xs text-gray-500">1 day ago</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background: rgba(74, 124, 89, 0.1);">
+                <i class="fas fa-edit text-xs" style="color: var(--cpp-primary);"></i>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-medium text-gray-900">Updated resume</p>
+                <p class="text-xs text-gray-500">3 days ago</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="../js/student/toast-manager.js"></script>
+  <script src="../js/student/auth.js"></script>
+  <script src="../js/student/job-manager.js"></script>
+  <script src="../js/student/tab-manager.js"></script>
+  <script src="../js/student/profile-manager.js"></script>
+  <script src="../js/student/app.js"></script>
+  <script src="../js/component-loader.js"></script>
+</body>
+</html>

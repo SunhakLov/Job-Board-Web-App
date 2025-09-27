@@ -1,0 +1,105 @@
+/* Mobile Menu Styles */
+.mobile-menu {
+  transform: translateX(-100%);
+  transition: transform var(--transition-normal);
+  width: var(--mobile-menu-width);
+}
+
+.mobile-menu.active {
+  transform: translateX(0);
+}
+
+.mobile-menu-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+/* Mobile Navigation Links */
+.mobile-nav-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #374151;
+  font-weight: 500;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.mobile-nav-link:hover {
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+.mobile-nav-link i {
+  color: #6b7280;
+  margin-right: 0.75rem;
+}
+
+/* Mobile Auth Buttons */
+.mobile-auth-btn {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-lg);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-auth-btn-primary {
+  color: #374151;
+  border: 1px solid #d1d5db;
+  background: white;
+}
+
+.mobile-auth-btn-primary:hover {
+  background-color: #f9fafb;
+}
+
+.mobile-auth-btn-secondary {
+  background-color: var(--cpp-primary);
+  color: white;
+}
+
+.mobile-auth-btn-secondary:hover {
+  background-color: var(--cpp-secondary);
+}
+
+/* Mobile Menu Close Button */
+.mobile-close-btn {
+  padding: 0.5rem;
+  color: #6b7280;
+  transition: color var(--transition-fast);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-close-btn:hover {
+  color: #374151;
+}
+
+/* Responsive Behavior */
+@media (max-width: 768px) {
+  .mobile-menu {
+    width: 100vw;
+    max-width: var(--mobile-menu-width);
+  }
+}
+
+/* Animation for menu items */
+.mobile-menu .mobile-nav-link {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all var(--transition-normal);
+}
+
+.mobile-menu.active .mobile-nav-link {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-menu.active .mobile-nav-link:nth-child(1) { transition-delay: 0.1s; }
+.mobile-menu.active .mobile-nav-link:nth-child(2) { transition-delay: 0.15s; }
+.mobile-menu.active .mobile-nav-link:nth-child(3) { transition-delay: 0.2s; }
+.mobile-menu.active .mobile-nav-link:nth-child(4) { transition-delay: 0.25s; }

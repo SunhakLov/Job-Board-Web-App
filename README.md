@@ -2,8 +2,6 @@
 
 A modern, responsive job board application built with HTML, CSS, Tailwind CSS, and vanilla JavaScript. Features a clean design with advanced animations, interactive components, and professional styling.
 
-## 🚀 Features
-
 ### Design & UI
 - **Professional Design**: Clean, modern interface with no cartoonish elements
 - **Responsive Layout**: Works perfectly on desktop, tablet, and mobile devices
@@ -28,7 +26,6 @@ A modern, responsive job board application built with HTML, CSS, Tailwind CSS, a
 - **SEO Ready**: Semantic HTML structure and meta tags
 
 ## 📁 Project Structure
-
 ```
 job app-html-tailwind/
 ├── index.html              # Main HTML file
@@ -41,7 +38,7 @@ job app-html-tailwind/
     └── main.js           # Main application logic
 ```
 
-## 🎨 Design System
+## Design System
 
 ### Color Palette
 - **Primary**: Blue (#2563eb)
@@ -64,7 +61,7 @@ job app-html-tailwind/
 - **Modal**: Detailed job information with smooth animations
 - **Footer**: Multi-column layout with company links
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **HTML5**: Semantic markup structure
 - **CSS3**: Advanced styling with custom properties and animations
@@ -73,14 +70,14 @@ job app-html-tailwind/
 - **Font Awesome**: Icon library for consistent iconography
 - **Google Fonts**: Inter font family for modern typography
 
-## 📱 Responsive Design
+## Responsive Design
 
 The application is fully responsive with breakpoints:
 - **Mobile**: < 768px
 - **Tablet**: 768px - 1024px
 - **Desktop**: > 1024px
 
-## ♿ Accessibility Features
+## Accessibility Features
 
 - Semantic HTML structure
 - Keyboard navigation support
@@ -89,7 +86,7 @@ The application is fully responsive with breakpoints:
 - High contrast colors
 - Reduced motion support for users with vestibular disorders
 
-## 🔧 Customization
+## Customization
 
 ### CSS Variables
 All colors, spacing, and other design tokens are defined as CSS custom properties in `styles/main.css`:

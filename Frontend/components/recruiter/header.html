@@ -1,0 +1,72 @@
+<!-- Recruiter Header Component -->
+<header class="bg-white shadow-sm border-b sticky top-0 z-40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+      <div class="flex items-center space-x-2">
+        <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+          <i class="fas fa-briefcase text-white text-lg"></i>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            JobConnect
+          </h1>
+          <span class="text-xs text-gray-500">Recruiter Portal</span>
+        </div>
+      </div>
+      
+      <!-- Guest Navigation -->
+      <nav id="guestNav" class="flex items-center space-x-4">
+        <button onclick="showAuthModal('login')" class="text-gray-600 hover:text-gray-900 px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
+          Sign In
+        </button>
+        <button onclick="showAuthModal('register')" class="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-lg hover:from-purple-600 hover:to-purple-700 transition-colors">
+          Sign Up
+        </button>
+        <a href="../index.html" class="text-gray-600 hover:text-gray-900 px-3 py-2">
+          <i class="fas fa-home mr-1"></i>Home
+        </a>
+      </nav>
+
+      <!-- Authenticated Navigation -->
+      <nav id="userNav" class="hidden items-center space-x-4">
+        <!-- Notifications -->
+        <div class="relative">
+          <button id="notification-bell" class="p-2 text-gray-600 hover:text-purple-600 relative rounded-lg hover:bg-purple-50 transition-colors duration-200">
+            <i class="fas fa-bell text-xl"></i>
+            <span id="notification-badge" class="absolute -top-1 -right-1 w-5 h-5 rounded-full text-xs flex items-center justify-center text-white bg-red-500 hidden">0</span>
+          </button>
+          
+          <!-- Notification Dropdown -->
+          <div id="notification-dropdown" class="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 z-50 hidden">
+            <div class="p-4 border-b border-gray-100">
+              <div class="flex items-center justify-between">
+                <h3 class="text-lg font-semibold text-gray-900">Notifications</h3>
+                <button id="mark-all-read" class="text-sm text-purple-600 hover:text-purple-700">Mark all read</button>
+              </div>
+            </div>
+            <div id="notification-list" class="max-h-96 overflow-y-auto">
+              <!-- Notifications will be populated here -->
+            </div>
+            <div class="p-4 border-t border-gray-100 text-center">
+              <a href="#" class="text-sm text-purple-600 hover:text-purple-700">View all notifications</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- User Profile -->
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center">
+            <span class="text-white font-medium text-sm">JR</span>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-gray-900">Jane Recruiter</p>
+            <p class="text-xs text-gray-500">TechCorp Inc.</p>
+          </div>
+        </div>
+        <button onclick="logout()" class="text-gray-600 hover:text-gray-900 px-3 py-2">
+          <i class="fas fa-sign-out-alt mr-1"></i>Logout
+        </button>
+      </nav>
+    </div>
+  </div>
+</header>

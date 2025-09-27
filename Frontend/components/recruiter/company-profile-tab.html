@@ -1,0 +1,252 @@
+<!-- Company Profile Tab Component -->
+<div class="p-6">
+  <div class="max-w-4xl">
+    <div class="mb-8">
+      <h3 class="text-lg font-semibold text-gray-900 mb-2">Company Profile</h3>
+      <p class="text-gray-600">Manage your company information and branding visible to candidates.</p>
+    </div>
+    
+    <form id="company-profile-form" class="space-y-8">
+      <!-- Company Basic Information -->
+      <div class="bg-gray-50 rounded-lg p-6">
+        <h4 class="text-md font-medium text-gray-900 mb-6">Basic Information</h4>
+        
+        <!-- Company Logo -->
+        <div class="flex items-start space-x-6 mb-6">
+          <div class="flex-shrink-0">
+            <div class="w-24 h-24 bg-white rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center">
+              <div id="logo-preview" class="hidden">
+                <img id="logo-img" src="" alt="Company Logo" class="w-full h-full object-cover rounded-lg">
+              </div>
+              <div id="logo-placeholder" class="text-center">
+                <i class="fas fa-building text-gray-400 text-2xl mb-2"></i>
+                <p class="text-xs text-gray-500">Company Logo</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex-1">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Company Logo</label>
+            <input type="file" id="company-logo" name="companyLogo" accept="image/*"
+                   class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100">
+            <p class="text-xs text-gray-500 mt-1">PNG, JPG or GIF. Max size 2MB.</p>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="company-name" class="block text-sm font-medium text-gray-700 mb-2">
+              Company Name *
+            </label>
+            <input type="text" id="company-name" name="companyName" required
+                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                   placeholder="TechCorp Inc." value="TechCorp Inc.">
+          </div>
+          <div>
+            <label for="industry" class="block text-sm font-medium text-gray-700 mb-2">
+              Industry *
+            </label>
+            <select id="industry" name="industry" required
+                    class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+              <option value="">Select Industry</option>
+              <option value="technology" selected>Technology</option>
+              <option value="finance">Finance</option>
+              <option value="healthcare">Healthcare</option>
+              <option value="education">Education</option>
+              <option value="retail">Retail</option>
+              <option value="manufacturing">Manufacturing</option>
+              <option value="consulting">Consulting</option>
+              <option value="media">Media & Entertainment</option>
+              <option value="nonprofit">Non-profit</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="company-size" class="block text-sm font-medium text-gray-700 mb-2">
+              Company Size *
+            </label>
+            <select id="company-size" name="companySize" required
+                    class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+              <option value="">Select Size</option>
+              <option value="1-10">1-10 employees</option>
+              <option value="11-50" selected>11-50 employees</option>
+              <option value="51-200">51-200 employees</option>
+              <option value="201-500">201-500 employees</option>
+              <option value="501-1000">501-1000 employees</option>
+              <option value="1000+">1000+ employees</option>
+            </select>
+          </div>
+          <div>
+            <label for="founded-year" class="block text-sm font-medium text-gray-700 mb-2">
+              Founded Year
+            </label>
+            <input type="number" id="founded-year" name="foundedYear" min="1800" max="2024"
+                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                   placeholder="2020" value="2020">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Contact Information -->
+      <div class="bg-gray-50 rounded-lg p-6">
+        <h4 class="text-md font-medium text-gray-900 mb-4">Contact Information</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="company-website" class="block text-sm font-medium text-gray-700 mb-2">
+              Website
+            </label>
+            <input type="url" id="company-website" name="companyWebsite"
+                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                   placeholder="https://techcorp.com" value="https://techcorp.com">
+          </div>
+          <div>
+            <label for="company-phone" class="block text-sm font-medium text-gray-700 mb-2">
+              Phone Number
+            </label>
+            <input type="tel" id="company-phone" name="companyPhone"
+                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                   placeholder="(555) 123-4567" value="(555) 123-4567">
+          </div>
+          <div class="md:col-span-2">
+            <label for="company-address" class="block text-sm font-medium text-gray-700 mb-2">
+              Address
+            </label>
+            <textarea id="company-address" name="companyAddress" rows="3"
+                      class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                      placeholder="123 Tech Street, Suite 100, San Francisco, CA 94105">123 Tech Street, Suite 100
+San Francisco, CA 94105</textarea>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Company Description -->
+      <div class="bg-gray-50 rounded-lg p-6">
+        <h4 class="text-md font-medium text-gray-900 mb-4">Company Description</h4>
+        <div class="space-y-4">
+          <div>
+            <label for="company-description" class="block text-sm font-medium text-gray-700 mb-2">
+              About the Company *
+            </label>
+            <textarea id="company-description" name="companyDescription" required rows="6"
+                      class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                      placeholder="Tell candidates about your company culture, mission, and what makes it a great place to work...">TechCorp is a leading technology company focused on building innovative solutions that transform how businesses operate. Founded in 2020, we've grown to become a trusted partner for companies looking to modernize their digital infrastructure.
+
+Our mission is to make technology accessible and powerful for everyone. We pride ourselves on our collaborative culture, commitment to continuous learning, and dedication to making a positive impact in the tech industry.</textarea>
+          </div>
+          <div>
+            <label for="company-mission" class="block text-sm font-medium text-gray-700 mb-2">
+              Mission Statement
+            </label>
+            <textarea id="company-mission" name="companyMission" rows="3"
+                      class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                      placeholder="Our mission is to...">To empower businesses with cutting-edge technology solutions that drive growth, efficiency, and innovation in an increasingly digital world.</textarea>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Company Culture & Benefits -->
+      <div class="bg-gray-50 rounded-lg p-6">
+        <h4 class="text-md font-medium text-gray-900 mb-4">Culture & Benefits</h4>
+        <div class="space-y-6">
+          <div>
+            <label for="company-values" class="block text-sm font-medium text-gray-700 mb-2">
+              Company Values (one per line)
+            </label>
+            <textarea id="company-values" name="companyValues" rows="4"
+                      class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                      placeholder="Innovation&#10;Collaboration&#10;Integrity&#10;Customer Focus">Innovation
+Collaboration
+Integrity
+Customer Focus
+Continuous Learning</textarea>
+          </div>
+          <div>
+            <label for="company-benefits" class="block text-sm font-medium text-gray-700 mb-2">
+              Benefits & Perks (one per line)
+            </label>
+            <textarea id="company-benefits" name="companyBenefits" rows="6"
+                      class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                      placeholder="Health, Dental & Vision Insurance&#10;401k with Company Match&#10;Flexible PTO&#10;Remote Work Options&#10;Professional Development Budget">Health, Dental & Vision Insurance
+401k with Company Match
+Flexible PTO Policy
+Remote Work Options
+$2000 Professional Development Budget
+Free Lunch & Snacks
+Wellness Programs
+Stock Options</textarea>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Social Media -->
+      <div class="bg-gray-50 rounded-lg p-6">
+        <h4 class="text-md font-medium text-gray-900 mb-4">Social Media & Links</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="linkedin-url" class="block text-sm font-medium text-gray-700 mb-2">
+              LinkedIn Company Page
+            </label>
+            <input type="url" id="linkedin-url" name="linkedinUrl"
+                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                   placeholder="https://linkedin.com/company/techcorp">
+          </div>
+          <div>
+            <label for="twitter-url" class="block text-sm font-medium text-gray-700 mb-2">
+              Twitter/X Profile
+            </label>
+            <input type="url" id="twitter-url" name="twitterUrl"
+                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                   placeholder="https://twitter.com/techcorp">
+          </div>
+          <div>
+            <label for="github-url" class="block text-sm font-medium text-gray-700 mb-2">
+              GitHub Organization
+            </label>
+            <input type="url" id="github-url" name="githubUrl"
+                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                   placeholder="https://github.com/techcorp">
+          </div>
+          <div>
+            <label for="glassdoor-url" class="block text-sm font-medium text-gray-700 mb-2">
+              Glassdoor Profile
+            </label>
+            <input type="url" id="glassdoor-url" name="glassdoorUrl"
+                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                   placeholder="https://glassdoor.com/Overview/Working-at-techcorp">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Profile Visibility -->
+      <div class="bg-gray-50 rounded-lg p-6">
+        <h4 class="text-md font-medium text-gray-900 mb-4">Profile Visibility</h4>
+        <div class="space-y-3">
+          <label class="flex items-center">
+            <input type="checkbox" id="public-profile" name="publicProfile" checked
+                   class="rounded border-gray-300 text-purple-600 focus:ring-purple-500">
+            <span class="ml-2 text-sm text-gray-700">Make company profile visible to job seekers</span>
+          </label>
+          <label class="flex items-center">
+            <input type="checkbox" id="show-salary-ranges" name="showSalaryRanges" checked
+                   class="rounded border-gray-300 text-purple-600 focus:ring-purple-500">
+            <span class="ml-2 text-sm text-gray-700">Display salary ranges in job postings</span>
+          </label>
+          <label class="flex items-center">
+            <input type="checkbox" id="allow-applications" name="allowApplications" checked
+                   class="rounded border-gray-300 text-purple-600 focus:ring-purple-500">
+            <span class="ml-2 text-sm text-gray-700">Allow direct applications through the platform</span>
+          </label>
+        </div>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="flex justify-end space-x-4">
+        <button type="button" class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors duration-200">
+          Cancel Changes
+        </button>
+        <button type="submit" class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200">
+          Save Profile
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

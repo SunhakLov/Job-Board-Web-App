@@ -1,0 +1,91 @@
+<!-- Main Header Component -->
+<header class="bg-white shadow-sm border-b sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-3">
+      <!-- Logo -->
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-cpp-primary">
+          <i class="fas fa-briefcase text-white text-lg"></i>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold text-cpp-primary">JobConnect</h1>
+          <p class="text-xs text-gray-500 -mt-1">Cal Poly Pomona</p>
+        </div>
+      </div>
+      
+      <!-- Navigation -->
+      <nav class="hidden md:flex items-center space-x-6">
+        <a href="#" class="text-gray-700 hover:text-gray-900 font-medium transition-colors">Find jobs</a>
+        <a href="#" class="text-gray-700 hover:text-gray-900 font-medium transition-colors">Company reviews</a>
+        <a href="#" class="text-gray-700 hover:text-gray-900 font-medium transition-colors">Career advice</a>
+        <a href="#" class="text-gray-700 hover:text-gray-900 font-medium transition-colors">For employers</a>
+      </nav>
+      
+      <!-- Auth Buttons -->
+      <div class="hidden md:flex items-center space-x-3">
+        <button id="signInBtn" class="text-gray-700 hover:text-gray-900 font-medium transition-colors">Sign in</button>
+        <button class="px-4 py-2 rounded-lg font-medium text-white transition-colors bg-cpp-primary hover:bg-cpp-secondary">
+          Post your resume
+        </button>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="md:hidden p-2 text-gray-600 hover:text-gray-900 transition-colors">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Mobile Menu Overlay -->
+  <div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
+  
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu fixed top-0 left-0 h-full w-80 bg-white z-50 shadow-xl md:hidden">
+    <div class="p-6">
+      <!-- Mobile Header -->
+      <div class="flex items-center justify-between mb-8">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-cpp-primary">
+            <i class="fas fa-briefcase text-white text-sm"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-bold text-cpp-primary">JobConnect</h2>
+          </div>
+        </div>
+        <button id="closeMobileMenu" class="p-2 text-gray-600 hover:text-gray-900 transition-colors">
+          <i class="fas fa-times text-xl"></i>
+        </button>
+      </div>
+      
+      <!-- Mobile Navigation -->
+      <nav class="space-y-4 mb-8">
+        <a href="#" class="block py-3 px-4 text-gray-700 hover:bg-gray-50 rounded-lg font-medium transition-colors">
+          <i class="fas fa-search mr-3 text-gray-500"></i>
+          Find Jobs
+        </a>
+        <a href="#" class="block py-3 px-4 text-gray-700 hover:bg-gray-50 rounded-lg font-medium transition-colors">
+          <i class="fas fa-building mr-3 text-gray-500"></i>
+          Company Reviews
+        </a>
+        <a href="#" class="block py-3 px-4 text-gray-700 hover:bg-gray-50 rounded-lg font-medium transition-colors">
+          <i class="fas fa-graduation-cap mr-3 text-gray-500"></i>
+          Career Advice
+        </a>
+        <a href="#" class="block py-3 px-4 text-gray-700 hover:bg-gray-50 rounded-lg font-medium transition-colors">
+          <i class="fas fa-handshake mr-3 text-gray-500"></i>
+          For Employers
+        </a>
+      </nav>
+      
+      <!-- Mobile Auth Buttons -->
+      <div class="space-y-3">
+        <button id="mobileSignInBtn" class="w-full py-3 px-4 text-gray-700 border border-gray-300 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+          Sign In
+        </button>
+        <button class="w-full py-3 px-4 text-white rounded-lg font-medium transition-colors bg-cpp-primary">
+          Post Your Resume
+        </button>
+      </div>
+    </div>
+  </div>
+</header>

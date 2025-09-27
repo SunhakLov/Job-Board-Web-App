@@ -86,6 +86,7 @@ class JobBoardApp {
     this.setupEventListeners();
     this.setupFileUpload();
     this.setupAnimations();
+    this.setupSignInModal();
   }
 
   setupEventListeners() {
@@ -175,6 +176,281 @@ class JobBoardApp {
     setTimeout(() => {
       this.showToast('Search completed! Showing relevant results.', 'success');
     }, 1500);
+  }
+
+  setupSignInModal() {
+    const signInBtn = document.getElementById('signInBtn');
+    const mobileSignInBtn = document.getElementById('mobileSignInBtn');
+    const signInModal = document.getElementById('signInModal');
+    const closeSignInModal = document.getElementById('closeSignInModal');
+    const signInForm = document.getElementById('signInForm');
+    const togglePassword = document.getElementById('togglePassword');
+
+    // Setup mobile menu functionality
+    this.setupMobileMenu();
+
+    // Open sign-in modal (desktop)
+    if (signInBtn) {
+      signInBtn.addEventListener('click', () => {
+        this.openSignInModal();
+      });
+    }
+
+    // Open sign-in modal (mobile)
+    if (mobileSignInBtn) {
+      mobileSignInBtn.addEventListener('click', () => {
+        this.closeMobileMenu();
+        this.openSignInModal();
+      });
+    }
+
+    // Close sign-in modal
+    if (closeSignInModal) {
+      closeSignInModal.addEventListener('click', () => {
+        this.closeSignInModal();
+      });
+    }
+
+    // Close modal when clicking outside
+    if (signInModal) {
+      signInModal.addEventListener('click', (e) => {
+        if (e.target === signInModal) {
+          this.closeSignInModal();
+        }
+      });
+    }
+
+    // Handle form submission
+    if (signInForm) {
+      signInForm.addEventListener('submit', (e) => {
+        this.handleSignInSubmit(e);
+      });
+    }
+
+    // Toggle password visibility
+    if (togglePassword) {
+      togglePassword.addEventListener('click', () => {
+        const passwordInput = document.getElementById('signInPassword');
+        const icon = togglePassword.querySelector('i');
+        
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text';
+          icon.classList.remove('fa-eye');
+          icon.classList.add('fa-eye-slash');
+        } else {
+          passwordInput.type = 'password';
+          icon.classList.remove('fa-eye-slash');
+          icon.classList.add('fa-eye');
+        }
+      });
+    }
+  }
+
+  openSignInModal() {
+    const modal = document.getElementById('signInModal');
+    if (modal) {
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      
+      // Add animation
+      const modalContent = modal.querySelector('.bg-white');
+      modalContent.style.transform = 'scale(0.95)';
+      modalContent.style.opacity = '0';
+      
+      requestAnimationFrame(() => {
+        modalContent.style.transition = 'all 0.3s ease';
+        modalContent.style.transform = 'scale(1)';
+        modalContent.style.opacity = '1';
+      });
+
+      // Focus on email input
+      setTimeout(() => {
+        const emailInput = document.getElementById('signInEmail');
+        if (emailInput) emailInput.focus();
+      }, 300);
+    }
+  }
+
+  closeSignInModal() {
+    const modal = document.getElementById('signInModal');
+    if (modal) {
+      const modalContent = modal.querySelector('.bg-white');
+      modalContent.style.transform = 'scale(0.95)';
+      modalContent.style.opacity = '0';
+      
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+        // Reset form
+        const form = document.getElementById('signInForm');
+        if (form) form.reset();
+      }, 200);
+    }
+  }
+
+  handleSignInSubmit(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    const email = formData.get('email');
+    const password = formData.get('password');
+    
+    // Basic validation
+    if (!email || !password) {
+      this.showToast('Please fill in all fields', 'error');
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      this.showToast('Please enter a valid email address', 'error');
+      return;
+    }
+
+    // Show loading state
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const originalHTML = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner animate-spin mr-2"></i>Signing in...';
+    submitBtn.disabled = true;
+
+    // Simulate API call
+    setTimeout(() => {
+      // Mock authentication - in real app, this would call your backend
+      if (this.mockAuthentication(email, password)) {
+        this.showToast('Welcome back! You have been signed in successfully.', 'success');
+        this.closeSignInModal();
+        this.updateUIForLoggedInUser(email);
+      } else {
+        this.showToast('Invalid email or password. Please try again.', 'error');
+      }
+      
+      // Reset button
+      submitBtn.innerHTML = originalHTML;
+      submitBtn.disabled = false;
+    }, 1500);
+  }
+
+  mockAuthentication(email, password) {
+    // Mock authentication logic - accepts any email with password "demo123"
+    // In a real application, this would validate against your backend
+    const validCredentials = [
+      { email: 'student@cpp.edu', password: 'demo123' },
+      { email: 'demo@example.com', password: 'demo123' },
+      { email: 'admin@jobconnect.com', password: 'demo123' }
+    ];
+
+    return validCredentials.some(cred => 
+      cred.email.toLowerCase() === email.toLowerCase() && cred.password === password
+    ) || password === 'demo123'; // Accept demo123 for any email
+  }
+
+  updateUIForLoggedInUser(email) {
+    const signInBtn = document.getElementById('signInBtn');
+    if (signInBtn) {
+      // Extract name from email (simple approach)
+      const name = email.split('@')[0];
+      const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
+      
+      signInBtn.innerHTML = `<i class="fas fa-user-circle mr-2"></i>${capitalizedName}`;
+      signInBtn.classList.add('bg-green-100', 'text-green-800', 'px-3', 'py-1', 'rounded-md');
+      
+      // Change click behavior to show user menu
+      signInBtn.onclick = () => {
+        this.showUserMenu();
+      };
+    }
+  }
+
+  showUserMenu() {
+    // Simple user menu - in a real app, this might be a dropdown
+    const choice = prompt('User Menu:\n1. Dashboard\n2. Profile\n3. Settings\n4. Sign Out\n\nEnter number (1-4):');
+    
+    switch(choice) {
+      case '1':
+        this.showToast('Redirecting to dashboard...', 'info');
+        break;
+      case '2':
+        this.showToast('Opening profile...', 'info');
+        break;
+      case '3':
+        this.showToast('Opening settings...', 'info');
+        break;
+      case '4':
+        this.signOut();
+        break;
+      default:
+        if (choice) this.showToast('Invalid option', 'error');
+    }
+  }
+
+  signOut() {
+    const signInBtn = document.getElementById('signInBtn');
+    if (signInBtn) {
+      signInBtn.innerHTML = 'Sign in';
+      signInBtn.className = 'text-gray-700 hover:text-gray-900 font-medium';
+      signInBtn.onclick = () => this.openSignInModal();
+    }
+    this.showToast('You have been signed out successfully', 'success');
+  }
+
+  setupMobileMenu() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const closeMobileMenu = document.getElementById('closeMobileMenu');
+
+    // Open mobile menu
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        this.openMobileMenu();
+      });
+    }
+
+    // Close mobile menu - close button
+    if (closeMobileMenu) {
+      closeMobileMenu.addEventListener('click', () => {
+        this.closeMobileMenu();
+      });
+    }
+
+    // Close mobile menu - overlay click
+    if (mobileMenuOverlay) {
+      mobileMenuOverlay.addEventListener('click', () => {
+        this.closeMobileMenu();
+      });
+    }
+
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('active')) {
+        this.closeMobileMenu();
+      }
+    });
+  }
+
+  openMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    
+    if (mobileMenu && mobileMenuOverlay) {
+      mobileMenuOverlay.classList.remove('hidden');
+      mobileMenu.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  closeMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    
+    if (mobileMenu && mobileMenuOverlay) {
+      mobileMenu.classList.remove('active');
+      setTimeout(() => {
+        mobileMenuOverlay.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }, 300);
+    }
   }
 
   setupFileUpload() {

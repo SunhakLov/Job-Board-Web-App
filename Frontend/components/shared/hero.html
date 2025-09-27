@@ -1,0 +1,40 @@
+<!-- Hero Section Component -->
+<section class="hero-section">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h2 class="hero-title">
+      Your next job starts here
+    </h2>
+    <p class="hero-subtitle">
+      Find opportunities that match your skills at Cal Poly Pomona and beyond
+    </p>
+
+    <!-- Main Search Bar -->
+    <div class="search-container max-w-3xl mx-auto mb-8">
+      <div class="flex flex-col md:flex-row gap-2">
+        <div class="flex-1 flex items-center px-4 py-3 border-r border-gray-200">
+          <i class="fas fa-search text-gray-400 mr-3"></i>
+          <input type="text" placeholder="Job title, keywords, or company" class="w-full outline-none text-gray-700">
+        </div>
+        <div class="flex-1 flex items-center px-4 py-3">
+          <i class="fas fa-map-marker-alt text-gray-400 mr-3"></i>
+          <input type="text" placeholder="City, state, zip code, or remote" class="w-full outline-none text-gray-700">
+        </div>
+        <button class="px-8 py-3 rounded-md text-white font-semibold transition-colors bg-cpp-primary hover:bg-cpp-secondary">
+          Find jobs
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Access Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+      <button onclick="window.location.href='./pages/student-portal.html'" class="quick-access-btn">
+        <i class="fas fa-user-graduate"></i>
+        I'm a student looking for jobs
+      </button>
+      <button onclick="window.location.href='./pages/recruiter-portal.html'" class="quick-access-btn">
+        <i class="fas fa-building"></i>
+        I'm hiring Bronco talent
+      </button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,297 @@
+<!-- Job Search Component -->
+<div id="searchTab" class="tab-content">
+  <!-- Search Bar -->
+  <div class="bg-white rounded-xl shadow-sm p-6 mb-6 border border-gray-100">
+    <div class="flex flex-col md:flex-row gap-4">
+      <div class="flex-1">
+        <div class="relative">
+          <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+          <input type="text" id="jobSearchInput" placeholder="Job title, keywords, or company..." class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors">
+        </div>
+      </div>
+      <div class="flex-1">
+        <div class="relative">
+          <i class="fas fa-map-marker-alt absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+          <input type="text" id="locationInput" placeholder="Location" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors">
+        </div>
+      </div>
+      <button id="searchJobsBtn" class="px-8 py-3 rounded-lg font-medium text-white transition-all hover:shadow-lg" style="background: linear-gradient(135deg, #1e3d2b, #2d5a3f);">
+        <i class="fas fa-search mr-2"></i>
+        Search
+      </button>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="bg-white rounded-xl shadow-sm p-6 mb-6 border border-gray-100">
+    <div class="flex flex-wrap gap-4">
+      <!-- Job Type Dropdown -->
+      <div class="relative">
+        <select id="jobTypeFilter" class="appearance-none px-4 py-2 pr-8 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white cursor-pointer transition-colors">
+          <option value="">All Job Types</option>
+          <option value="fulltime">Full-time</option>
+          <option value="parttime">Part-time</option>
+          <option value="internship">Internship</option>
+          <option value="coop">Co-op</option>
+          <option value="contract">Contract</option>
+        </select>
+        <i class="fas fa-chevron-down absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+      </div>
+      
+      <!-- Experience Level Dropdown -->
+      <div class="relative">
+        <select id="experienceFilter" class="appearance-none px-4 py-2 pr-8 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white cursor-pointer transition-colors">
+          <option value="">All Experience Levels</option>
+          <option value="entry">Entry Level</option>
+          <option value="student">Student/Intern</option>
+          <option value="mid">Mid Level</option>
+          <option value="senior">Senior Level</option>
+        </select>
+        <i class="fas fa-chevron-down absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+      </div>
+      
+      <!-- Industry Dropdown -->
+      <div class="relative">
+        <select id="industryFilter" class="appearance-none px-4 py-2 pr-8 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white cursor-pointer transition-colors">
+          <option value="">All Industries</option>
+          <option value="technology">Technology</option>
+          <option value="finance">Finance</option>
+          <option value="healthcare">Healthcare</option>
+          <option value="marketing">Marketing</option>
+          <option value="engineering">Engineering</option>
+          <option value="education">Education</option>
+          <option value="agriculture">Agriculture</option>
+          <option value="hospitality">Hospitality</option>
+        </select>
+        <i class="fas fa-chevron-down absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+      </div>
+      
+      <!-- Clear Filters Button -->
+      <button id="clearFilters" class="px-4 py-2 text-gray-600 hover:text-gray-800 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+        <i class="fas fa-times mr-2"></i>
+        Clear
+      </button>
+    </div>
+    
+    <!-- Active Filters Display -->
+    <div id="activeFilters" class="mt-4 flex flex-wrap gap-2 hidden">
+      <!-- Active filter tags will be displayed here -->
+    </div>
+  </div>
+
+  <!-- Search Results Header -->
+  <div class="flex items-center justify-between mb-6">
+    <div>
+      <h3 class="text-xl font-semibold text-gray-900">Job Search Results</h3>
+      <p id="resultsCount" class="text-gray-600 text-sm mt-1">Showing results for your search</p>
+    </div>
+    <!-- Sort Dropdown -->
+    <div class="relative">
+      <select id="sortFilter" class="appearance-none px-4 py-2 pr-8 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white cursor-pointer transition-colors">
+        <option value="relevance">Most Relevant</option>
+        <option value="date">Most Recent</option>
+        <option value="salary-high">Highest Salary</option>
+        <option value="salary-low">Lowest Salary</option>
+        <option value="company">Company A-Z</option>
+      </select>
+      <i class="fas fa-chevron-down absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+    </div>
+  </div>
+
+  <!-- Job Listings -->
+  <div id="jobListings" class="space-y-4">
+    <!-- Job listings will be loaded here -->
+    <div class="text-center py-12">
+      <i class="fas fa-search text-4xl text-gray-300 mb-4"></i>
+      <p class="text-gray-500">Enter your search criteria above to find jobs</p>
+    </div>
+  </div>
+
+  <!-- Load More -->
+  <div id="loadMoreSection" class="text-center mt-8 hidden">
+    <button id="loadMoreBtn" class="px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+      <i class="fas fa-plus mr-2"></i>
+      Load More Jobs
+    </button>
+  </div>
+</div>
+
+<script>
+// Job Search Component JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+  // Get filter elements
+  const jobTypeFilter = document.getElementById('jobTypeFilter');
+  const experienceFilter = document.getElementById('experienceFilter');
+  const industryFilter = document.getElementById('industryFilter');
+  const sortFilter = document.getElementById('sortFilter');
+  const clearFilters = document.getElementById('clearFilters');
+  const searchJobsBtn = document.getElementById('searchJobsBtn');
+  const jobSearchInput = document.getElementById('jobSearchInput');
+  const locationInput = document.getElementById('locationInput');
+
+  // Add event listeners for dropdown changes
+  [jobTypeFilter, experienceFilter, industryFilter, sortFilter].forEach(select => {
+    if (select) {
+      select.addEventListener('change', function() {
+        updateActiveFilters();
+        performSearch();
+      });
+    }
+  });
+
+  // Clear filters functionality
+  if (clearFilters) {
+    clearFilters.addEventListener('click', function() {
+      jobTypeFilter.value = '';
+      experienceFilter.value = '';
+      industryFilter.value = '';
+      sortFilter.value = 'relevance';
+      jobSearchInput.value = '';
+      locationInput.value = '';
+      updateActiveFilters();
+      clearJobListings();
+    });
+  }
+
+  // Search button functionality
+  if (searchJobsBtn) {
+    searchJobsBtn.addEventListener('click', performSearch);
+  }
+
+  // Enter key search
+  [jobSearchInput, locationInput].forEach(input => {
+    if (input) {
+      input.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          performSearch();
+        }
+      });
+    }
+  });
+
+  function updateActiveFilters() {
+    const activeFiltersContainer = document.getElementById('activeFilters');
+    const filters = [];
+    
+    if (jobTypeFilter.value) filters.push({label: 'Type', value: jobTypeFilter.options[jobTypeFilter.selectedIndex].text});
+    if (experienceFilter.value) filters.push({label: 'Experience', value: experienceFilter.options[experienceFilter.selectedIndex].text});
+    if (industryFilter.value) filters.push({label: 'Industry', value: industryFilter.options[industryFilter.selectedIndex].text});
+    
+    if (filters.length > 0) {
+      activeFiltersContainer.classList.remove('hidden');
+      activeFiltersContainer.innerHTML = filters.map(filter => 
+        `<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+          ${filter.label}: ${filter.value}
+          <button onclick="this.parentElement.remove(); updateActiveFilters();" class="ml-2 hover:text-green-600">×</button>
+        </span>`
+      ).join('');
+    } else {
+      activeFiltersContainer.classList.add('hidden');
+    }
+  }
+
+  function performSearch() {
+    const searchTerm = jobSearchInput.value;
+    const location = locationInput.value;
+    
+    if (!searchTerm && !location && !hasActiveFilters()) {
+      clearJobListings();
+      return;
+    }
+
+    // Show loading state
+    const jobListings = document.getElementById('jobListings');
+    jobListings.innerHTML = `
+      <div class="text-center py-12">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4"></div>
+        <p class="text-gray-500">Searching for jobs...</p>
+      </div>
+    `;
+
+    // Simulate search delay
+    setTimeout(() => {
+      // This would normally make an API call
+      displayMockResults(searchTerm, location);
+    }, 1500);
+  }
+
+  function hasActiveFilters() {
+    return jobTypeFilter.value || experienceFilter.value || industryFilter.value;
+  }
+
+  function clearJobListings() {
+    const jobListings = document.getElementById('jobListings');
+    const loadMoreSection = document.getElementById('loadMoreSection');
+    const resultsCount = document.getElementById('resultsCount');
+    
+    jobListings.innerHTML = `
+      <div class="text-center py-12">
+        <i class="fas fa-search text-4xl text-gray-300 mb-4"></i>
+        <p class="text-gray-500">Enter your search criteria above to find jobs</p>
+      </div>
+    `;
+    
+    loadMoreSection.classList.add('hidden');
+    resultsCount.textContent = 'Showing results for your search';
+  }
+
+  function displayMockResults(searchTerm, location) {
+    // Mock job results - in a real app, this would come from an API
+    const mockJobs = [
+      {
+        title: 'Software Engineer',
+        company: 'Google',
+        location: 'Mountain View, CA',
+        type: 'Full-time',
+        salary: '$120K - $180K',
+        posted: '2 days ago',
+        description: 'Join Google\'s engineering team...'
+      },
+      {
+        title: 'Product Manager',
+        company: 'Apple',
+        location: 'Cupertino, CA',
+        type: 'Full-time',
+        salary: '$130K - $170K',
+        posted: '1 day ago',
+        description: 'Lead product development...'
+      }
+    ];
+
+    const jobListings = document.getElementById('jobListings');
+    const resultsCount = document.getElementById('resultsCount');
+    const loadMoreSection = document.getElementById('loadMoreSection');
+
+    resultsCount.textContent = `Found ${mockJobs.length} jobs${searchTerm ? ` for "${searchTerm}"` : ''}${location ? ` in ${location}` : ''}`;
+    
+    jobListings.innerHTML = mockJobs.map(job => `
+      <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100 hover:shadow-md transition-shadow">
+        <div class="flex justify-between items-start mb-4">
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-1">${job.title}</h3>
+            <p class="text-gray-600 mb-2">${job.company} • ${job.location}</p>
+            <div class="flex items-center space-x-3">
+              <span class="text-sm px-3 py-1 bg-green-100 text-green-800 rounded-full font-medium">${job.type}</span>
+              <span class="text-sm text-gray-500">${job.posted}</span>
+            </div>
+          </div>
+          <div class="text-right">
+            <p class="text-lg font-semibold text-gray-900 mb-3">${job.salary}</p>
+            <div class="flex space-x-2">
+              <button class="p-2 text-gray-500 hover:text-red-500 transition-colors">
+                <i class="fas fa-heart"></i>
+              </button>
+              <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                Apply
+              </button>
+            </div>
+          </div>
+        </div>
+        <p class="text-gray-700">${job.description}</p>
+      </div>
+    `).join('');
+
+    loadMoreSection.classList.remove('hidden');
+  }
+});
+</script>

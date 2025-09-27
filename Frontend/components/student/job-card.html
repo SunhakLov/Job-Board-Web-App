@@ -1,0 +1,37 @@
+<!-- Job Card Component Template -->
+<template id="jobCardTemplate">
+  <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-4">
+        <div class="flex items-start space-x-4">
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+            <i class="fas fa-code text-blue-600"></i>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-lg font-semibold text-gray-900 mb-1 job-title">Job Title</h3>
+            <p class="text-gray-600 mb-2 job-company">Company Name</p>
+            <div class="flex flex-wrap gap-2 job-tags">
+              <!-- Tags will be inserted here -->
+            </div>
+          </div>
+        </div>
+        <div class="flex space-x-2">
+          <button onclick="saveJob(this)" class="p-2 text-gray-400 hover:text-red-500 transition-colors">
+            <i class="far fa-heart"></i>
+          </button>
+          <button onclick="applyToJob(this)" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+            Apply
+          </button>
+        </div>
+      </div>
+      <p class="text-gray-600 mb-4 job-description">Job description goes here...</p>
+      <div class="flex items-center justify-between text-sm text-gray-500">
+        <div class="flex items-center space-x-4">
+          <span class="job-location"><i class="fas fa-map-marker-alt mr-1"></i>Location</span>
+          <span class="job-posted"><i class="fas fa-clock mr-1"></i>Posted date</span>
+          <span class="job-applicants"><i class="fas fa-users mr-1"></i>Applicants</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

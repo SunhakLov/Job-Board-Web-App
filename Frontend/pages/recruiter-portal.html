@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recruiter Portal - JobConnect</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.0/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../styles/main.css" rel="stylesheet">
+  <link href="../styles/components.css" rel="stylesheet">
+  <link href="../styles/utilities.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 min-h-screen" data-component-loader="recruiter">
+  <!-- Components will be loaded here -->
+  <div id="auth-modal-container"></div>
+  <div id="header-container"></div>
+  
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div id="welcome-section-container"></div>
+    
+    <!-- Dashboard (shown after login) -->
+    <div id="dashboardSection" class="hidden">
+      <div id="dashboard-stats-container"></div>
+      <div id="navigation-tabs-container"></div>
+      
+      <!-- Tab Contents -->
+      <div id="post-job-tab-container"></div>
+      <div id="job-listings-tab-container"></div>
+      <div id="candidates-tab-container"></div>
+      <div id="company-profile-tab-container"></div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="../js/recruiter/toast-manager.js"></script>
+  <script src="../js/recruiter/auth.js"></script>
+  <script src="../js/recruiter/notification-manager.js"></script>
+  <script src="../js/recruiter/job-manager.js"></script>
+  <script src="../js/recruiter/candidate-manager.js"></script>
+  <script src="../js/recruiter/tab-manager.js"></script>
+  <script src="../js/recruiter/app.js"></script>
+  <script src="../js/component-loader.js"></script>
+</body>
+</html>
