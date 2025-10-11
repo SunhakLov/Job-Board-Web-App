@@ -20,19 +20,24 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 
-<body class="bg-white dark:bg-gray-900 font-mono">
-    <header class="w-5/6 mx-auto">
-        <nav class="bg-white border-gray-200 dark:bg-gray-900">
-            <div class="max-w-screen-xl flex flex-col md:flex-row gap-6 items-center justify-between mx-auto p-4">
+<body class="bg-white font-mono text-[#005030]">
+    <header class="bg-white mx-auto">
+        <nav
+            class="bg-[linear-gradient(90deg,#FFB81C_32%,#A4D65E_100%)]  border-gray-200 fixed top-0 right-0 left-0 z-1">
+            <div
+                class="max-w-screen w-[80vw] flex flex-col md:flex-row gap-6 items-center justify-between mx-auto p-8 mx-8">
                 <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
                     <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+                    <span
+                        class="self-center text-2xl font-semibold whitespace-nowrap text-[#005030] text-3xl transition-all duration-200 ease-in-out hover:text-[#a4d65e] hover:underline underline-offset-8">BroncoBoard</span>
                 </a>
-                <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse gap-4 ">
+                <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse gap-6 ">
                     <button type="button"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
+                        class="text-white font-bold bg-[#005030] rounded-lg text-sm px-6 py-3 transition-all duration-200 ease-in-out hover:bg-yellow-400 hover:text-[#005030]">
+                        Login
+                    </button>
                     <button type="button"
-                        class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 ">Sign
+                        class="text-white font-bold bg-[#005030] rounded-lg text-sm px-6 py-3 transition-all duration-200 ease-in-out hover:bg-yellow-400 hover:text-[#005030]">Sign
                         Up</button>
                 </div>
             </div>
@@ -40,107 +45,154 @@
 
     </header>
 
-    <section class="w-5/6 mx-auto text-center mt-[5rem] hero mb-16">
+    <section class="w-5/6 mx-auto text-center hero flex justify-center align-center min-h-screen">
+        <div class="flex flex-col justify-center align-center gap-6">
+            <h1 class="mb-6 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-4xl">
+                Finding Your On-Campus Jobs Today</h1>
+            <p class="mb-10 text-lg font-normal text-yellow-700 font-bold lg:text-xl sm:px-16 xl:px-48  leading-[1.7]">
+                Connect with the employee and gain working experience at <br><span class="font-extrabold text-black">Cal
+                    Poly
+                    Pomona</span></p>
 
-        <h1
-            class="mb-6 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-4xl dark:text-white">
-            Finding Your On-Campus Jobs Today</h1>
-        <p
-            class="mb-10 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400 leading-[1.7]">
-            Connect with the employee and gain working experience at <br><span
-                class="font-medium text-black dark:text-white">Cal Poly
-                Pomona</span></p>
-
-        <form class="flex items-center max-w-3xl mx-auto">
-            <label for="simple-search" class="sr-only">Search</label>
-            <div class="relative w-full">
-                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                    <i class="fa-solid fa-school-flag text-gray-700 dark:text-white"></i>
+            <form class="flex items-center w-full mx-auto basis-1">
+                <label for="simple-search" class="sr-only">Search</label>
+                <div class="relative w-full grow">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <i class="fa-solid fa-school-flag text-[#005030] "></i>
+                    </div>
+                    <input type="text" id="simple-search"
+                        class="bg-gray-50 border-3 border-[#005030] text-gray-900 text-m rounded-lg focus:ring-blue-500 focus:border-yellow-500 block w-full ps-10 p-4 border-gray-600 placeholder-gray-400 text-[#005030] focus:ring-yellow-500 focus:border-yellow-500"
+                        placeholder="Search Jobs... " required />
                 </div>
-                <input type="text" id="simple-search"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-3  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Search Jobs... " required />
-            </div>
-            <button type="submit"
-                class="p-3 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 20 20">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                </svg>
-                <span class="sr-only">Search</span>
-            </button>
-        </form>
+                <button type="submit"
+                    class="p-5 ms-2 text-sm font-medium text-[#005030] bg-[#a4d65e] rounded-lg  border-[#a4d65e] transition-all duration-200 ease-in-out hover:bg-yellow-400 hover:text-[#005030]">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                    </svg>
+                    <span class="sr-only">Search</span>
+                </button>
+            </form>
+        </div>
     </section>
 
-    <hr class="w-5/6 h-1 mx-auto my-4 bg-gray-100 border-0 rounded-sm md:my-10 dark:bg-gray-700">
-
-    <section class="cards mt-10 max-w-screen-xl mx-auto flex flex-col text-white dark:text-black mb-5">
-        <p class="font-medium text-black dark:text-white lg:text-4xl sm:text-xl sm:px-4 max-sm:px-4">Recently Posted</p>
+    <section
+        class="cards mt-10 max-w-screen-3xl mx-auto flex flex-col text-white mb-5 bg-[linear-gradient(90deg,#FFB81C_32%,#A4D65E_100%)] p-10">
+        <p class="text-[#005030] font-extrabold lg:text-4xl sm:text-2xl sm:px-4 max-sm:px-4">
+            Recently Posted
+        </p>
         <div
-            class="card-container flex flex-col gap-4 mt-5 overflow-y-scroll h-[40rem] p-6 border-6 rounded-lg border-double border-black mx-auto md:my-10 w-5/6">
-            <div>
-                <a href="#"
-                    class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-sm md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                    <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
-                        src="/docs/images/blog/image-4.jpg" alt="">
-                    <div class="flex flex-col justify-between p-4 leading-normal">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy
-                            technology
-                            acquisitions 2021</h5>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
-                            technology
-                            acquisitions of 2021 so far, in reverse chronological order.</p>
-                    </div>
-                </a>
-            </div>
+            class="card-container flex flex-col gap-4 mt-5 overflow-y-scroll h-[40rem] p-6 border-6 rounded-lg border-double border-[#005030] mx-auto md:my-10 w-5/6">
 
-            <div>
-                <a href="#"
-                    class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-sm md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                    <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
-                        src="/docs/images/blog/image-4.jpg" alt="">
-                    <div class="flex flex-col justify-between p-4 leading-normal">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy
-                            technology
-                            acquisitions 2021</h5>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
-                            technology
-                            acquisitions of 2021 so far, in reverse chronological order.</p>
+            <div class="flex flex-col gap-4">
+                <div
+                    class="flex flex-row bg-[#005030] text-white rounded-lg shadow-sm md:flex-row  transition-all duration-200 ease-in-out hover:bg-[#a4d65e] hover:text-[#005030] h-40 transition-colors duration-300">
+                    <div class="pt-3 px-3 flex align-center justify-center h-full">
+                        <img src="./images/meta.png" alt="Meta logo"
+                            class="w-[4rem] h-[4rem] rounded-full object-cover object-center" />
                     </div>
-                </a>
-            </div>
+                    <div class="flex flex-col p-4 leading-normal gap-1 h-full">
+                        <div class="company-role">
+                            <p class="font-bold">Meta</p>
+                            <p class="text-2xl font-bold tracking-tight">
+                                Software
+                                Engineer, Intern/Co-op
+                            </p>
+                        </div>
+                        <p class="font-thin text-sm">
+                            <span class="salary">30$/hr</span> &middot;
+                            <span class="type">Intership</span> &middot;
+                            <span class="Duration">Nov 2 - Dec 30</span>
+                        </p>
 
-            <div>
-                <a href="#"
-                    class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-sm md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                    <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
-                        src="/docs/images/blog/image-4.jpg" alt="">
-                    <div class="flex flex-col justify-between p-4 leading-normal">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy
-                            technology
-                            acquisitions 2021</h5>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
-                            technology
-                            acquisitions of 2021 so far, in reverse chronological order.</p>
+                        <p class="font-thin text-sm mt-6">
+                            <span class="location">Menlo Park, CA</span> &middot;
+                            <span class="type">On-site</span>
+                        </p>
                     </div>
-                </a>
-            </div>
+                </div>
 
-            <div>
-                <a href="#"
-                    class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-sm md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                    <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
-                        src="/docs/images/blog/image-4.jpg" alt="">
-                    <div class="flex flex-col justify-between p-4 leading-normal">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy
-                            technology
-                            acquisitions 2021</h5>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
-                            technology
-                            acquisitions of 2021 so far, in reverse chronological order.</p>
+                <div
+                    class="flex flex-row bg-[#005030] text-white rounded-lg shadow-sm md:flex-row  transition-all duration-200 ease-in-out hover:bg-[#a4d65e] hover:text-[#005030] h-40 transition-colors duration-300">
+                    <div class="pt-3 px-3 flex align-center justify-center h-full">
+                        <img src="./images/meta.png" alt="Meta logo"
+                            class="w-[4rem] h-[4rem] rounded-full object-cover object-center" />
                     </div>
-                </a>
+                    <div class="flex flex-col p-4 leading-normal gap-1 h-full">
+                        <div class="company-role">
+                            <p class="font-bold">Meta</p>
+                            <p class="text-2xl font-bold tracking-tight">
+                                Software
+                                Engineer, Intern/Co-op
+                            </p>
+                        </div>
+                        <p class="font-thin text-sm">
+                            <span class="salary">30$/hr</span> &middot;
+                            <span class="type">Intership</span> &middot;
+                            <span class="Duration">Nov 2 - Dec 30</span>
+                        </p>
+
+                        <p class="font-thin text-sm mt-6">
+                            <span class="location">Menlo Park, CA</span> &middot;
+                            <span class="type">On-site</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="flex flex-row bg-[#005030] text-white rounded-lg shadow-sm md:flex-row  transition-all duration-200 ease-in-out hover:bg-[#a4d65e] hover:text-[#005030] h-40 transition-colors duration-300">
+                    <div class="pt-3 px-3 flex align-center justify-center h-full">
+                        <img src="./images/meta.png" alt="Meta logo"
+                            class="w-[4rem] h-[4rem] rounded-full object-cover object-center" />
+                    </div>
+                    <div class="flex flex-col p-4 leading-normal gap-1 h-full">
+                        <div class="company-role">
+                            <p class="font-bold">Meta</p>
+                            <p class="text-2xl font-bold tracking-tight">
+                                Software
+                                Engineer, Intern/Co-op
+                            </p>
+                        </div>
+                        <p class="font-thin text-sm">
+                            <span class="salary">30$/hr</span> &middot;
+                            <span class="type">Intership</span> &middot;
+                            <span class="Duration">Nov 2 - Dec 30</span>
+                        </p>
+
+                        <p class="font-thin text-sm mt-6">
+                            <span class="location">Menlo Park, CA</span> &middot;
+                            <span class="type">On-site</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="flex flex-row bg-[#005030] text-white rounded-lg shadow-sm md:flex-row  transition-all duration-200 ease-in-out hover:bg-[#a4d65e] hover:text-[#005030] h-40 transition-colors duration-300">
+                    <div class="pt-3 px-3 flex align-center justify-center h-full">
+                        <img src="./images/meta.png" alt="Meta logo"
+                            class="w-[4rem] h-[4rem] rounded-full object-cover object-center" />
+                    </div>
+                    <div class="flex flex-col p-4 leading-normal gap-1 h-full">
+                        <div class="company-role">
+                            <p class="font-bold">Meta</p>
+                            <p class="text-2xl font-bold tracking-tight">
+                                Software
+                                Engineer, Intern/Co-op
+                            </p>
+                        </div>
+                        <p class="font-thin text-sm">
+                            <span class="salary">30$/hr</span> &middot;
+                            <span class="type">Intership</span> &middot;
+                            <span class="Duration">Nov 2 - Dec 30</span>
+                        </p>
+
+                        <p class="font-thin text-sm mt-6">
+                            <span class="location">Menlo Park, CA</span> &middot;
+                            <span class="type">On-site</span>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -149,18 +201,18 @@
     <hr class="w-5/6 h-1 mx-auto my-4 bg-gray-100 border-0 rounded-sm md:my-10 dark:bg-gray-700">
 
     <section class="Jumbotron">
-        <section class="bg-white dark:bg-gray-900">
+        <section class="bg-white ">
             <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 flex flex-col gap-6">
                 <h1
-                    class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                    class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-[#005030] md:text-5xl lg:text-6xl">
                     Ready to Transform Your Career?</h1>
-                <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">Join
+                <p class="mb-8 text-lg font-normal text-yellow-700 lg:text-xl sm:px-16 lg:px-48">Join
                     thousands of Cal Poly Pomona Broncos who have already discovered their perfect opportunities with
                     JobConnect.</p>
                 <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 gap-6">
 
                     <a href="#"
-                        class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                        class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-[#005030] rounded-lg bg-[#a4d65e] hover:bg-yellow-400 hover:text-[#005030]">
                         Explor Job opportunities
                         <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -170,7 +222,7 @@
                     </a>
 
                     <a href="#"
-                        class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                        class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-[#005030] rounded-lg bg-[#a4d65e] hover:bg-yellow-400 hover:text-[#005030]">
                         Recruiting Broncos
                         <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -186,22 +238,22 @@
 
 
     <!-- Footer -->
-    <footer class="bg-white dark:bg-gray-900">
+    <footer class="bg-[#005030]">
         <div class="mx-auto w-full max-w-screen-full p-4 py-2 lg:py-8">
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0">
                     <a href="https://flowbite.com/" class="flex items-center">
                         <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
                         <span
-                            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+                            class="self-center text-2xl font-semibold whitespace-nowrap text-white text-3xl transition-all duration-200 ease-in-out hover:text-[#a4d65e] hover:underline underline-offset-8">BroncoBoard</span>
                     </a>
                 </div>
                 <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
-                        <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                        <h2 class="mb-6 text-sm font-semibold text-white uppercase dark:text-white">Resources</h2>
+                        <ul class="text-white font-medium">
                             <li class="mb-4">
-                                <a href="https://flowbite.com/" class="hover:underline">Flowbite</a>
+                                <a href="https://flowbite.com/" class="hover:underline">BroncoBoard</a>
                             </li>
                             <li>
                                 <a href="https://tailwindcss.com/" class="hover:underline">Tailwind CSS</a>
@@ -209,8 +261,8 @@
                         </ul>
                     </div>
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
-                        <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                        <h2 class="mb-6 text-sm font-semibold text-white uppercase">Follow us</h2>
+                        <ul class="text-white font-medium">
                             <li class="mb-4">
                                 <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Github</a>
                             </li>
@@ -220,8 +272,8 @@
                         </ul>
                     </div>
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
-                        <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                        <h2 class="mb-6 text-sm font-semibold text-white uppercase">Legal</h2>
+                        <ul class="text-white font-medium">
                             <li class="mb-4">
                                 <a href="#" class="hover:underline">Privacy Policy</a>
                             </li>
@@ -232,13 +284,13 @@
                     </div>
                 </div>
             </div>
-            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+            <hr class="my-6 sm:mx-auto lg:my-8" />
             <div class="sm:flex sm:items-center sm:justify-between">
-                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a
-                        href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+                <span class="text-sm text-white sm:text-center">© 2025 <a href="https://flowbite.com/"
+                        class="hover:underline">BroncoBoard</a>. All Rights Reserved.
                 </span>
                 <div class="flex mt-4 sm:justify-center sm:mt-0">
-                    <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                    <a href="#" class="text-white hover:text-white ms-5">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 8 19">
                             <path fill-rule="evenodd"
@@ -247,7 +299,7 @@
                         </svg>
                         <span class="sr-only">Facebook page</span>
                     </a>
-                    <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                    <a href="#" class="text-white hover:text-white ms-5">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 21 16">
                             <path
@@ -255,7 +307,7 @@
                         </svg>
                         <span class="sr-only">Discord community</span>
                     </a>
-                    <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                    <a href="#" class="text-white hover:text-white ms-5">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 20 17">
                             <path fill-rule="evenodd"
@@ -264,7 +316,7 @@
                         </svg>
                         <span class="sr-only">Twitter page</span>
                     </a>
-                    <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                    <a href="#" class="text-white hover:text-white ms-5">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 20 20">
                             <path fill-rule="evenodd"
@@ -273,7 +325,7 @@
                         </svg>
                         <span class="sr-only">GitHub account</span>
                     </a>
-                    <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                    <a href="#" class="text-white hover:text-white ms-5">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 20 20">
                             <path fill-rule="evenodd"
