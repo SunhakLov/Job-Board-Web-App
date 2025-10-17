@@ -1,7 +1,12 @@
 <!-- To do -->
 <!-- 
-=> allow user to click on job tab and go to candidate (working on candidate lists)
-=> update each job tab making it look obvoius for user to see / know it use to show job list
+=> Working on Action Btn 
+
+Side tap
+   => Allow employer to see candidate datails
+   => Allow user to note
+   => Has a btn to change candidate status / go to user github(portfolio) / request interview / resume summary (AI)
+   => When reject => system send an email to candidates
 -->
 
 <!DOCTYPE html>
@@ -149,17 +154,285 @@
     <div class="p-4 sm:ml-64 h-full">
         <!-- Pop Up Screen -->
         <div
-            class="p-4 border-2 border-gray-200 border-dashed rounded-lg  mt-30 h-[85vh] job-detail-container-popup hidden overflow-y-scroll transition-discrete">
+            class="p-4 border-2 border-gray-200 border-dashed rounded-lg  mt-30 h-[85vh] job-detail-container-popup  overflow-y-scroll transition-discrete flex flex-col hidden">
             <button type="button"
-                class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-500 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 close-popup">
+                class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-500 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 close-popup self-start">
                 <span class="sr-only">Close menu</span>
-                <!-- Heroicon name: outline/x -->
                 <svg class="w-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
                         d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
                         clip-rule="evenodd"></path>
                 </svg> <span class="font-bold">Back</span>
             </button>
+
+            <div role="status"
+                class="max-w-full p-4 mt-4 space-y-4 border border-gray-200 divide-y divide-gray-200 rounded-sm shadow-sm  md:p-6 h-[95%]">
+
+                <!-- Allow only 6 people at a time -->
+                <p class="font-bold text-xl">6 Applications</p>
+
+                <!-- Applicant Cards / Nav -->
+                <div class="flow-root">
+                    <div class="max-w-full flex flex-row items-center justify-between p-3 sm:p-4">
+                        <div class="font-bold basis-4/9">
+                            <p>Applicants</p>
+                        </div>
+
+                        <!-- Applied refer to applied data -->
+                        <div class="font-bold basis-2/9">
+                            <p>Applied</p>
+                        </div>
+
+                        <!-- Status refer to reject/interview/offer -->
+                        <div class="font-bold basis-2/9">
+                            <p>Status</p>
+                        </div>
+
+                        <div class="font-bold basis-1/9 ">
+                            <p class="text-right">Actions</p>
+                        </div>
+
+
+                    </div>
+                    <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700 flex flex-col gap-3">
+                        <!-- Each candidate -->
+                        <li
+                            class="p-3 sm:p-4 border-double border-2 rounded-lg hover:scale-102 transition duration-300 ease-in-out">
+                            <div class="flex items-center justify-between flex-row">
+                                <div class="flex items-center basis-4/9">
+                                    <div class="shrink-0">
+                                        <img class="w-10 h-10  rounded-full" src="images/cat1.jpg" alt="Neil image">
+                                    </div>
+                                    <div class="flex-1 min-w-0 ms-4">
+                                        <p class="text-sm font-medium text-gray-900 truncate ">
+                                            Neil Sims
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            email@windster.com
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="basis-2/9">
+                                    <p>10/05/2025</p>
+                                </div>
+                                <div class="basis-2/9">
+                                    <p><span class="text-red-500 bg-red-100 p-2 rounded-lg font-bold">Reject</span></p>
+                                </div>
+                                <div class="basis-1/9 flex justify-end">
+                                    <button type="button"
+                                        class="rounded-md p-2 inline-flex items-center justify-center text-black hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 close-popup self-end">
+                                        <span class="sr-only">Actions Button</span>
+                                        <i class="fa-solid fa-bars"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- End of Each Candidate -->
+
+                        <!-- Each candidate -->
+                        <li
+                            class="p-3 sm:p-4 border-double border-2 rounded-lg hover:scale-102 transition duration-300 ease-in-out">
+                            <div class="flex items-center justify-between flex-row">
+                                <div class="flex items-center basis-4/9">
+                                    <div class="shrink-0">
+                                        <img class="w-10 h-10 rounded-full" src="images/dog1.jpg" alt="Neil image">
+                                    </div>
+                                    <div class="flex-1 min-w-0 ms-4">
+                                        <p class="text-sm font-medium text-gray-900 truncate ">
+                                            Neil Sims
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            email@windster.com
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="basis-2/9">
+                                    <p>10/05/2025</p>
+                                </div>
+                                <div class="basis-2/9">
+                                    <p><span
+                                            class="text-yellow-500 bg-yellow-100 p-2 rounded-lg font-bold">Interview</span>
+                                    </p>
+                                </div>
+                                <div class="basis-1/9 flex justify-end">
+                                    <button type="button"
+                                        class="rounded-md p-2 inline-flex items-center justify-center text-black hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 close-popup self-end">
+                                        <span class="sr-only">Actions Button</span>
+                                        <i class="fa-solid fa-bars"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- End of Each Candidate -->
+
+                        <!-- Each candidate -->
+                        <li
+                            class="p-3 sm:p-4 border-double border-2 rounded-lg hover:scale-102 transition duration-300 ease-in-out">
+                            <div class="flex items-center justify-between flex-row">
+                                <div class="flex items-center basis-4/9">
+                                    <div class="shrink-0">
+                                        <img class="w-10 h-10 rounded-full" src="images/ryan-trahan-smile.jpg"
+                                            alt="Neil image">
+                                    </div>
+                                    <div class="flex-1 min-w-0 ms-4">
+                                        <p class="text-sm font-medium text-gray-900 truncate ">
+                                            Neil Sims
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            email@windster.com
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="basis-2/9">
+                                    <p>10/05/2025</p>
+                                </div>
+                                <div class="basis-2/9">
+                                    <p><span class="text-green-500 bg-green-100 p-2 rounded-lg font-bold">Offer</span>
+                                    </p>
+                                </div>
+                                <div class="basis-1/9 flex justify-end">
+                                    <button type="button"
+                                        class="rounded-md p-2 inline-flex items-center justify-center text-black hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 close-popup self-end">
+                                        <span class="sr-only">Actions Button</span>
+                                        <i class="fa-solid fa-bars"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- End of Each Candidate -->
+
+                        <!-- Each candidate -->
+                        <li
+                            class="p-3 sm:p-4 border-double border-2 rounded-lg hover:scale-102 transition duration-300 ease-in-out">
+                            <div class="flex items-center justify-between flex-row">
+                                <div class="flex items-center basis-4/9">
+                                    <div class="shrink-0">
+                                        <img class="w-10 h-10  rounded-full" src="images/cat1.jpg" alt="Neil image">
+                                    </div>
+                                    <div class="flex-1 min-w-0 ms-4">
+                                        <p class="text-sm font-medium text-gray-900 truncate ">
+                                            Neil Sims
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            email@windster.com
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="basis-2/9">
+                                    <p>10/05/2025</p>
+                                </div>
+                                <div class="basis-2/9">
+                                    <p><span class="text-red-500 bg-red-100 p-2 rounded-lg font-bold">Reject</span></p>
+                                </div>
+                                <div class="basis-1/9 flex justify-end">
+                                    <button type="button"
+                                        class="rounded-md p-2 inline-flex items-center justify-center text-black hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 close-popup self-end">
+                                        <span class="sr-only">Actions Button</span>
+                                        <i class="fa-solid fa-bars"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- End of Each Candidate -->
+
+                        <!-- Each candidate -->
+                        <li
+                            class="p-3 sm:p-4 border-double border-2 rounded-lg hover:scale-102 transition duration-300 ease-in-out">
+                            <div class="flex items-center justify-between flex-row">
+                                <div class="flex items-center basis-4/9">
+                                    <div class="shrink-0">
+                                        <img class="w-10 h-10 rounded-full" src="images/dog1.jpg" alt="Neil image">
+                                    </div>
+                                    <div class="flex-1 min-w-0 ms-4">
+                                        <p class="text-sm font-medium text-gray-900 truncate ">
+                                            Neil Sims
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            email@windster.com
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="basis-2/9">
+                                    <p>10/05/2025</p>
+                                </div>
+                                <div class="basis-2/9">
+                                    <p><span
+                                            class="text-yellow-500 bg-yellow-100 p-2 rounded-lg font-bold">Interview</span>
+                                    </p>
+                                </div>
+                                <div class="basis-1/9 flex justify-end">
+                                    <button type="button"
+                                        class="rounded-md p-2 inline-flex items-center justify-center text-black hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 close-popup self-end">
+                                        <span class="sr-only">Actions Button</span>
+                                        <i class="fa-solid fa-bars"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- End of Each Candidate -->
+
+                        <!-- Each candidate -->
+                        <li
+                            class="p-3 sm:p-4 border-double border-2 rounded-lg hover:scale-102 transition duration-300 ease-in-out">
+                            <div class="flex items-center justify-between flex-row">
+                                <div class="flex items-center basis-4/9">
+                                    <div class="shrink-0">
+                                        <img class="w-10 h-10 rounded-full" src="images/ryan-trahan-smile.jpg"
+                                            alt="Neil image">
+                                    </div>
+                                    <div class="flex-1 min-w-0 ms-4">
+                                        <p class="text-sm font-medium text-gray-900 truncate ">
+                                            Neil Sims
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            email@windster.com
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="basis-2/9">
+                                    <p>10/05/2025</p>
+                                </div>
+                                <div class="basis-2/9">
+                                    <p><span class="text-green-500 bg-green-100 p-2 rounded-lg font-bold">Offer</span>
+                                    </p>
+                                </div>
+                                <div class="basis-1/9 flex justify-end">
+                                    <button type="button"
+                                        class="rounded-md p-2 inline-flex items-center justify-center text-black hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 close-popup self-end">
+                                        <span class="sr-only">Actions Button</span>
+                                        <i class="fa-solid fa-bars"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- End of Each Candidate -->
+
+                    </ul>
+                </div>
+
+                <!-- Privous / Next BTN -->
+                <div class="flex pt-4">
+                    <!-- Previous Button -->
+                    <a href="#"
+                        class="flex items-center justify-center px-3 h-8 me-3 text-sm font-medium text-black bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700">
+                        <svg class="w-3.5 h-3.5 me-2 rtl:rotate-180" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 5H1m0 0 4 4M1 5l4-4" />
+                        </svg>
+                        Previous
+                    </a>
+                    <a href="#"
+                        class="flex items-center justify-center px-3 h-8 me-3 text-sm font-medium text-black bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700">
+                        Next
+                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
 
         <div class="p-4 mt-25 overflow-y-scroll h-[85vh] job-list-container">
@@ -208,7 +481,7 @@
 
             </div>
             <!-- Each Job -->
-            <div class="flex flex-col gap-4 p-4 cursor-pointer hover:scale-105 transition delay-150 duration-300 ease-in-out"
+            <div class="flex flex-col p-4 cursor-pointer hover:scale-105 transition duration-300 ease-in-out"
                 onclick="popJobDetail()">
                 <div
                     class="flex flex-col sm:flex-row bg-[#005030] text-white rounded-lg shadow-sm transition-all duration-300 ease-in-out hover:bg-[#a4d65e] hover:text-[#005030] sm:h-40 w-full">
@@ -218,8 +491,8 @@
                             class="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover object-center" />
                     </div>
 
-                    <div class="flex flex-col sm:p-2 p-2 leading-normal gap-1 justify-between h-full">
-                        <div class="company-role">
+                    <div class="flex flex-col leading-normal gap-3 justify-center h-full">
+                        <div class="company-role pt-2">
                             <p class="font-bold text-base md:text-base">Meta</p>
                             <p class="text-lg md:text-xl font-bold tracking-tight">
                                 Software Engineer, Intern/Co-op
@@ -230,9 +503,8 @@
                             <span class="type">Internship</span> &middot;
                             <span class="duration">Nov 2 - Dec 30</span>
                         </p>
-                        <p class="font-thin text-sm sm:mt-2">
-                            <span class="location">Menlo Park, CA</span> &middot;
-                            <span class="type">On-site</span>
+                        <p class="font-thin text-sm">
+                            Number of Applications : <span>100</span> Applications
                         </p>
                     </div>
                 </div>
