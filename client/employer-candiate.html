@@ -203,8 +203,12 @@ Side tap
 
 
                         </div>
-                        <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700 flex flex-col gap-3">
+                        <ul role="list" id="Candidate-Screen"
+                            class=" divide-y divide-gray-200 dark:divide-gray-700 flex flex-col gap-3">
+
                             <!-- Each candidate -->
+
+                            <!--                              
                             <li class="p-3 sm:p-4 border-double border-2 rounded-lg hover:scale-102 transition duration-300 ease-in-out"
                                 data-id="123" data-name="Neil Sims" data-email="neil.sims@flowbite.com">
                                 <div class="flex items-center justify-between flex-row">
@@ -237,9 +241,7 @@ Side tap
                                     </div>
                                 </div>
                             </li>
-                            <!-- End of Each Candidate -->
 
-                            <!-- Each candidate -->
                             <li class="p-3 sm:p-4 border-double border-2 rounded-lg hover:scale-102 transition duration-300 ease-in-out"
                                 data-id="124" data-name="Neil Sims2" data-email="neil.sims2@flowbite.com">
                                 <div class="flex items-center justify-between flex-row">
@@ -273,9 +275,7 @@ Side tap
                                     </div>
                                 </div>
                             </li>
-                            <!-- End of Each Candidate -->
 
-                            <!-- Each candidate -->
                             <li class="p-3 sm:p-4 border-double border-2 rounded-lg hover:scale-102 transition duration-300 ease-in-out"
                                 data-id="125" data-name="Neil Sims3" data-email="neil.sims3@flowbite.com">
                                 <div class="flex items-center justify-between flex-row">
@@ -309,7 +309,8 @@ Side tap
                                         </button>
                                     </div>
                                 </div>
-                            </li>
+                            </li> -->
+
                             <!-- End of Each Candidate -->
 
                         </ul>
@@ -387,8 +388,8 @@ Side tap
 
                 </div>
                 <!-- Each Job -->
-                <div class="flex flex-col p-4 cursor-pointer hover:scale-105 transition duration-300 ease-in-out"
-                    onclick="popJobDetail()">
+                <div
+                    class="flex flex-col p-4 cursor-pointer hover:scale-105 transition duration-300 ease-in-out popJobDetail">
                     <div
                         class="flex flex-col sm:flex-row bg-[#005030] text-white rounded-lg shadow-sm transition-all duration-300 ease-in-out hover:bg-[#a4d65e] hover:text-[#005030] sm:h-40 w-full">
 
@@ -425,7 +426,7 @@ Side tap
     <!-- flowbite -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
-    <script src="javaScript/index.js"></script>
+    <script src="javaScript/index.js" type="module"></script>
 </body>
 
 </html>
