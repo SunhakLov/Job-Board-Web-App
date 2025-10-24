@@ -55,7 +55,8 @@ function renderCandidate() {
             <li class="p-3 sm:p-4 border-double border-2 rounded-lg hover:scale-102 transition duration-300 ease-in-out"
                 data-id="${candidate.candidateID}" 
                 data-name="${candidate.candidateName}" 
-                data-email="${candidate.candidateEmail}">
+                data-email="${candidate.candidateEmail}"
+                data-img="${candidate.candidatePhoto}">
                 
                 <div class="flex items-center justify-between flex-row">
                     
@@ -127,7 +128,7 @@ CandidateScreen.addEventListener("click", (e) => {
 
     // Get candidate data from <li>
     const li = btn.closest("li");
-    const { id, name, email } = li.dataset;
+    const { id, name, email, img } = li.dataset;
 
     // --- Open sidebar ---
     settingCandidateScreen.classList.remove("w-[0]");
@@ -136,20 +137,115 @@ CandidateScreen.addEventListener("click", (e) => {
 
     // --- Inject sidebar content dynamically ---
     settingCandidateScreen.innerHTML = `
-        <button class="closeSidebar text-white p-2 font-bold bg-black">Close</button>
-        <div class="p-4 text-white">
-            <h2 class="text-xl font-bold mb-2">${name}</h2>
+    <button class="closeSidebar text-black p-2 m-4 rounded-lg font-bold bg-yellow-400">
+        Close <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="text-black p-2 bg-white m-5 rounded-lg h-[85%] overflow-y-scroll">
+        <div class="flex flex-col gap-10 m-5">
+        
+        <div class="flex flex-row items-center justify-start gap-8 m-4">
+            <div>
+            <img class="w-[120px] h-[120px] rounded-full border border-dashed p-2"
+                src="${img}" 
+                alt="${name}">
+            </div>
+            <div>
+            <p class="text-xl font-bold mb-2">${name}</p>
             <p>Email: ${email}</p>
-            <p>ID: ${id}</p>
+            </div>
         </div>
-    `;
+
+        <div class="textArea">
+            <label for="message" class="block mb-2 text-sm font-medium text-black">Internal notes</label>
+            <textarea id="message" rows="4"
+            class="block p-5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
+            placeholder="Write your comment here ..."></textarea>
+        </div>
+
+        <div class="settingbtn flex flex-col gap-3">
+            <div class="flex flex-row justify-between gap-3">
+            <button class="previewBtn bg-[#a4d65e] p-3 rounded-lg flex-1 hover:scale-105 active:translate-y-[2px]active:scale-95 transition-transform duration-150 ease-in-out">Preview Resume</button>
+            <button class="bg-[#a4d65e] p-3 rounded-lg flex-1 hover:scale-105 active:translate-y-[2px]active:scale-95 transition-transform duration-150 ease-in-out"><a href="pdf/Sunhak_Lov_s_Resume${id}.pdf" download class="w-full h-full block text-center">
+                Download Resume
+                </a>
+            </button>
+            </div>
+            <div class="flex flex-row justify-between gap-3">
+            <button class="interviewBtn bg-[#a4d65e] p-3 rounded-lg flex-1 hover:scale-105 active:translate-y-[2px]active:scale-95 transition-transform duration-150 ease-in-out">Request Interview</button>
+            <button class="rejectBtn bg-[#a4d65e] p-3 rounded-lg flex-1 hover:scale-105 active:translate-y-[2px]active:scale-95 transition-transform duration-150 ease-in-out">Reject</button>
+            </div>
+            <button class="offerBtn bg-[#a4d65e] p-3 rounded-lg flex-1 hover:scale-105 active:translate-y-[2px]active:scale-95 transition-transform duration-150 ease-in-out">Offer</button>
+            <button class="bg-yellow-400 p-3 rounded-lg flex-1 hover:scale-105 active:translate-y-[2px]active:scale-95 transition-transform duration-150 ease-in-out>
+        </div>
+        <div class = "resume hidden transition-all duration-500 ease-in-out">
+        <embed class="mx-auto mt-5 rounded-lg border" 
+                src="pdf/Sunhak_Lov_s_Resume${id}.pdf" 
+                width="600" height="375">
+        </div>
+        </div>
+    </div>
+`;
+
 
     // --- Handle sidebar close ---
+    settingCandidateScreen.dataset.currentId = id;
+
     const closeSidebar = settingCandidateScreen.querySelector(".closeSidebar");
     closeSidebar.addEventListener("click", () => {
         settingCandidateScreen.classList.remove("w-[40vw]");
         settingCandidateScreen.classList.add("w-[0]");
         mainContent.classList.remove("opacity-50");
+        resumeElement.classList.add("hidden");
+    });
+
+    const resumeElement = settingCandidateScreen.querySelector(".resume");
+    const previewBtn = settingCandidateScreen.querySelector(".previewBtn");
+    previewBtn.addEventListener("click", () => {
+        resumeElement.classList.remove("hidden");
+    });
+
+    const interviewBtn = settingCandidateScreen.querySelector(".interviewBtn");
+    interviewBtn.addEventListener("click", () => {
+        const candidateId = settingCandidateScreen.dataset.currentId;
+        myJobPostList.forEach((job) => {
+            job.applicants.forEach((applicant) => {
+                if (applicant.candidateID === candidateId) {
+                    applicant.candidateStatus = ["Interview", "yellow"];
+                }
+            });
+        });
+        CandidateScreen.innerHTML = "";
+        renderCandidate();
+    })
+
+    const rejectBtn = settingCandidateScreen.querySelector(".rejectBtn");
+    rejectBtn.addEventListener("click", () => {
+        const candidateId = settingCandidateScreen.dataset.currentId;
+        myJobPostList.forEach((job) => {
+            job.applicants.forEach((applicant) => {
+                if (applicant.candidateID === candidateId) {
+                    applicant.candidateStatus = ["Reject", "red"];
+                }
+            });
+        });
+        CandidateScreen.innerHTML = "";
+        renderCandidate();
+    });
+
+
+    const offerBtn = settingCandidateScreen.querySelector(".offerBtn");
+    offerBtn.addEventListener("click", () => {
+        const candidateId = settingCandidateScreen.dataset.currentId;
+        myJobPostList.forEach((job) => {
+            job.applicants.forEach((applicant) => {
+                if (applicant.candidateID === candidateId) {
+                    applicant.candidateStatus = ["Offer", "green"];
+                }
+            });
+        });
+        CandidateScreen.innerHTML = "";
+        renderCandidate();
     });
 });
 

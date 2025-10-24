@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Flowbite & Tailwind Css -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+
+    <!-- Font Awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="h-[100vh] font-mono">
+    <div
+        class="settingCandidateScreen h-[100%] w-[30%] bg-[#a4d65e] w-[0] overflow-hidden transition-all duration-500 ease-in-out opacity-100">
+        <button class="closeSidebar text-black p-2 m-4 rounded-lg font-bold bg-yellow-400">
+            Close
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="text-black p-2 bg-white m-5 rounded-lg h-[85%]">
+            <div class="flex flex-col gap-10 m-5">
+                <div class="flex flex-row items-center justify-start gap-8 m-4">
+                    <div>
+                        <img class="w-[120px] h-[120px] rounded-full border border-dashed p-2"
+                            src="images/ryan-trahan-smile.jpg" alt="${candidate.candidateName}">
+                    </div>
+                    <div>
+                        <p class="text-xl font-bold">Sunhak Lov</p>
+                        <p>Email: slov@cpp.edu</p>
+                    </div>
+                </div>
+
+                <div class="textArea">
+                    <label for="message" class="block mb-2 text-sm font-medium text-black">Internal notes</label>
+                    <textarea id="message" rows="4"
+                        class="block p-5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
+                        placeholder="Write your comment here ..."></textarea>
+                </div>
+                <div class="settingbtn flex flex-col gap-3">
+                    <div class="w-[100%] flex flex-row justify-between gap-3">
+                        <button class="bg-[#a4d65e] p-3 rounded-lg basis-1/2">Preview Resume</button>
+                        <button class="bg-[#a4d65e] p-3 rounded-lg basis-1/2">Preview Resume</button>
+                    </div>
+                    <div class="w-[100%] flex flex-row justify-between gap-3">
+                        <button class="bg-[#a4d65e] p-3 rounded-lg basis-1/2">Preview Resume</button>
+                        <button class="bg-[#a4d65e] p-3 rounded-lg basis-1/2">Preview Resume</button>
+                    </div>
+                </div>
+
+
+
+                <!-- <embed class="mx-auto " src="pdf/Sunhak_Lov_s_Resume123.pdf" width="500" height="375"> -->
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
