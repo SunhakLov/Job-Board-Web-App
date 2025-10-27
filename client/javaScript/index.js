@@ -56,7 +56,8 @@ function renderCandidate() {
                 data-id="${candidate.candidateID}" 
                 data-name="${candidate.candidateName}" 
                 data-email="${candidate.candidateEmail}"
-                data-img="${candidate.candidatePhoto}">
+                data-img="${candidate.candidatePhoto}"
+                data-messages="${candidate.candidateNote}">
                 
                 <div class="flex items-center justify-between flex-row">
                     
@@ -128,7 +129,7 @@ CandidateScreen.addEventListener("click", (e) => {
 
     // Get candidate data from <li>
     const li = btn.closest("li");
-    const { id, name, email, img } = li.dataset;
+    const { id, name, email, img, messages } = li.dataset;
 
     // --- Open sidebar ---
     settingCandidateScreen.classList.remove("w-[0]");
@@ -160,25 +161,25 @@ CandidateScreen.addEventListener("click", (e) => {
             <label for="message" class="block mb-2 text-sm font-medium text-black">Internal notes</label>
             <textarea id="message" rows="4"
             class="block p-5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
-            placeholder="Write your comment here ..."></textarea>
+            placeholder="Write your comment here ...">${messages || ""}</textarea>
         </div>
 
         <div class="settingbtn flex flex-col gap-3">
             <div class="flex flex-row justify-between gap-3">
-            <button class="previewBtn bg-[#a4d65e] p-3 rounded-lg flex-1 hover:scale-105 active:translate-y-[2px]active:scale-95 transition-transform duration-150 ease-in-out">Preview Resume</button>
-            <button class="bg-[#a4d65e] p-3 rounded-lg flex-1 hover:scale-105 active:translate-y-[2px]active:scale-95 transition-transform duration-150 ease-in-out"><a href="pdf/Sunhak_Lov_s_Resume${id}.pdf" download class="w-full h-full block text-center">
+            <button class="previewBtn bg-[#a4d65e] p-3 rounded-lg flex-1 hover:scale-105 active:translate-y-[2px] active:scale-95 transition-transform duration-150 ease-in-out">Preview Resume</button>
+            <button class="bg-[#a4d65e] p-3 rounded-lg flex-1 hover:scale-105 active:translate-y-[2px] active:scale-95 transition-transform duration-150 ease-in-out"><a href="pdf/Sunhak_Lov_s_Resume${id}.pdf" download class="w-full h-full block text-center">
                 Download Resume
                 </a>
             </button>
             </div>
             <div class="flex flex-row justify-between gap-3">
-            <button class="interviewBtn bg-[#a4d65e] p-3 rounded-lg flex-1 hover:scale-105 active:translate-y-[2px]active:scale-95 transition-transform duration-150 ease-in-out">Request Interview</button>
-            <button class="rejectBtn bg-[#a4d65e] p-3 rounded-lg flex-1 hover:scale-105 active:translate-y-[2px]active:scale-95 transition-transform duration-150 ease-in-out">Reject</button>
+            <button class="interviewBtn bg-[#a4d65e] p-3 rounded-lg flex-1 hover:scale-105 active:translate-y-[2px] active:scale-95 transition-transform duration-150 ease-in-out">Request Interview</button>
+            <button class="rejectBtn bg-[#a4d65e] p-3 rounded-lg flex-1 hover:scale-105 active:translate-y-[2px] active:scale-95 transition-transform duration-150 ease-in-out">Reject</button>
             </div>
-            <button class="offerBtn bg-[#a4d65e] p-3 rounded-lg flex-1 hover:scale-105 active:translate-y-[2px]active:scale-95 transition-transform duration-150 ease-in-out">Offer</button>
-            <button class="bg-yellow-400 p-3 rounded-lg flex-1 hover:scale-105 active:translate-y-[2px]active:scale-95 transition-transform duration-150 ease-in-out>
+            <button class="offerBtn bg-[#a4d65e] p-3 rounded-lg flex-1 hover:scale-105 active:translate-y-[2px]  active:scale-95 transition-transform duration-150 ease-in-out">Offer</button>
+            <button class="saveBtn bg-yellow-400 p-3 rounded-lg flex-1 hover:scale-105 active:translate-y-[2px] active:scale-95 transition-transform duration-150 ease-in-out">Save</button>
         </div>
-        <div class = "resume hidden transition-all duration-500 ease-in-out">
+        <div class = "resume opacity-0 max-h-0 transition-all duration-200 ease-in-out">
         <embed class="mx-auto mt-5 rounded-lg border" 
                 src="pdf/Sunhak_Lov_s_Resume${id}.pdf" 
                 width="600" height="375">
@@ -202,7 +203,8 @@ CandidateScreen.addEventListener("click", (e) => {
     const resumeElement = settingCandidateScreen.querySelector(".resume");
     const previewBtn = settingCandidateScreen.querySelector(".previewBtn");
     previewBtn.addEventListener("click", () => {
-        resumeElement.classList.remove("hidden");
+        resumeElement.classList.toggle("opacity-0");
+        resumeElement.classList.toggle("max-h-0");
     });
 
     const interviewBtn = settingCandidateScreen.querySelector(".interviewBtn");
@@ -215,8 +217,18 @@ CandidateScreen.addEventListener("click", (e) => {
                 }
             });
         });
-        CandidateScreen.innerHTML = "";
-        renderCandidate();
+        interviewBtn.classList.add("bg-yellow-200", "scale-95");
+        interviewBtn.textContent = "Requested";
+
+        interviewBtn.disabled = true;
+
+        setTimeout(() => {
+            interviewBtn.classList.remove("bg-yellow-200", "scale-95");
+            interviewBtn.disabled = false;
+            interviewBtn.textContent = "Request Interview";
+            CandidateScreen.innerHTML = "";
+            renderCandidate();
+        }, 800);
     })
 
     const rejectBtn = settingCandidateScreen.querySelector(".rejectBtn");
@@ -229,8 +241,18 @@ CandidateScreen.addEventListener("click", (e) => {
                 }
             });
         });
-        CandidateScreen.innerHTML = "";
-        renderCandidate();
+        rejectBtn.classList.add("bg-red-300", "scale-95");
+        rejectBtn.textContent = "Rejected";
+
+        rejectBtn.disabled = true;
+
+        setTimeout(() => {
+            rejectBtn.classList.remove("bg-red-300", "scale-95");
+            rejectBtn.disabled = false;
+            rejectBtn.textContent = "Reject";
+            CandidateScreen.innerHTML = "";
+            renderCandidate();
+        }, 800);
     });
 
 
@@ -244,21 +266,48 @@ CandidateScreen.addEventListener("click", (e) => {
                 }
             });
         });
-        CandidateScreen.innerHTML = "";
-        renderCandidate();
+        offerBtn.classList.add("bg-green-200", "scale-95");
+        offerBtn.textContent = "Offered";
+
+        offerBtn.disabled = true;
+
+        setTimeout(() => {
+            offerBtn.classList.remove("bg-green-200", "scale-95");
+            offerBtn.disabled = false;
+            offerBtn.textContent = "Offer";
+            CandidateScreen.innerHTML = "";
+            renderCandidate();
+        }, 800);
+    });
+
+    const saveBtn = settingCandidateScreen.querySelector(".saveBtn");
+    const saveComment = settingCandidateScreen.querySelector("#message");
+    saveBtn.addEventListener("click", () => {
+        const candidateId = settingCandidateScreen.dataset.currentId;
+        let textNote = "";
+        myJobPostList.forEach((job) => {
+            job.applicants.forEach((applicant) => {
+                if (applicant.candidateID === candidateId) {
+                    textNote = saveComment.value;
+                    applicant.candidateNote = textNote;
+                }
+            });
+        });
+        saveBtn.classList.add("bg-yellow-200", "scale-95");
+        saveBtn.textContent = "Saved";
+
+        saveBtn.disabled = true;
+
+        setTimeout(() => {
+            saveBtn.classList.remove("bg-yellow-200", "scale-95");
+            saveBtn.disabled = false;
+            saveBtn.textContent = "Save";
+            CandidateScreen.innerHTML = "";
+            saveComment.value = textNote;
+            renderCandidate();
+        }, 800);
     });
 });
 
 // → End of candidate action sidebar logic
 
-
-
-// =============================================================
-// 🚀 FUTURE TODO (For clarity)
-// =============================================================
-
-// ✅ Working on Fetching and Updating UI
-//    - Fetch job post data from backend
-//    - Update candidate status dynamically
-//    - Integrate email notification system
-//    - Add note-taking & GitHub/Resume preview in sidebar
