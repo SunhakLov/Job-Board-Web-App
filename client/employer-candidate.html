@@ -1,3 +1,4 @@
+<!-- ✅ -->
 <!-- To do -->
 <!-- 
 => Working on Action Btn 
@@ -95,13 +96,11 @@ Side tap
                 </div>
             </div>
         </nav>
-
     </header>
 
-    <!-- Side bar candidate acvtion -->
+    <!-- Side bar candidate acvtion (will fix)-->
     <div
         class="settingCandidateScreen h-[100%] fixed top-0 right-0 z-100 bg-[#a4d65e] w-[0] overflow-hidden transition-all duration-500 ease-in-out opacity-100">
-
     </div>
 
     <div class="main-content ">
@@ -178,7 +177,7 @@ Side tap
                     class="max-w-full p-4 mt-4 space-y-4 border border-gray-200 divide-y divide-gray-200 rounded-sm shadow-sm  md:p-6 h-[95%] relative">
 
                     <!-- Allow only 6 people at a time -->
-                    <p class="font-bold text-xl">6 Applications</p>
+                    <p class="font-bold text-xl"><span class="numberOfApplicants">6</span> Applications</p>
 
                     <!-- Applicant Cards / Nav -->
                     <div class="flow-root">
@@ -285,35 +284,9 @@ Side tap
 
                 </div>
                 <!-- Each Job -->
-                <div
-                    class="flex flex-col p-4 cursor-pointer hover:scale-105 transition duration-300 ease-in-out popJobDetail">
-                    <div
-                        class="flex flex-col sm:flex-row bg-[#005030] text-white rounded-lg shadow-sm transition-all duration-300 ease-in-out hover:bg-[#a4d65e] hover:text-[#005030] sm:h-40 w-full">
-
-                        <div class="p-4 flex items-center justify-center">
-                            <img src="./images/meta.png" alt="Meta logo"
-                                class="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover object-center" />
-                        </div>
-
-                        <div class="flex flex-col leading-normal gap-3 justify-center h-full">
-                            <div class="company-role pt-2">
-                                <p class="font-bold text-base md:text-base">Meta</p>
-                                <p class="text-lg md:text-xl font-bold tracking-tight">
-                                    Software Engineer, Intern/Co-op
-                                </p>
-                            </div>
-                            <p class="font-thin text-sm">
-                                <span class="salary">30$/hr</span> &middot;
-                                <span class="type">Internship</span> &middot;
-                                <span class="duration">Nov 2 - Dec 30</span>
-                            </p>
-                            <p class="font-thin text-sm">
-                                Number of Applications : <span>100</span> Applications
-                            </p>
-                        </div>
-                    </div>
+                <div id="Job-List-Container" class="flex flex-col gap-2">
+                    <!-- Render by JS -->
                 </div>
-                <!-- End of each job -->
             </div>
         </div>
     </div>
@@ -324,6 +297,7 @@ Side tap
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
     <script src="javaScript/index.js" type="module"></script>
+
 </body>
 
 </html>
