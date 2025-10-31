@@ -1,5 +1,5 @@
-import { myJobPostList } from "./data.js";
-import { renderApplicantsElement, renderCandidate } from "./renderApplicants.js"
+import { myJobPostList } from "../data.js";
+import { renderApplicantsElement, renderCandidate } from "../employer/renderApplicants.js"
 
 const jobListContainer = document.getElementById("Job-List-Container");
 const jobDetailPopupContainer = document.querySelector(".job-detail-container-popup");

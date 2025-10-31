@@ -1,4 +1,4 @@
-import { myJobPostList } from "./data.js";
+import { myJobPostList } from "../data.js";
 
 const displayNumberOfApplicants = document.querySelector("span.numberOfApplicants")
 const CandidateScreen = document.getElementById("Candidate-Screen");

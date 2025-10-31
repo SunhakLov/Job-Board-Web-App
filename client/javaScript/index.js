@@ -1,4 +1,4 @@
-import { renderJobPosts } from "./renderJob.js"
+import { renderJobPosts } from "./employer/renderJob.js"
 
 renderJobPosts();
 
