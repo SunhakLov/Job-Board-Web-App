@@ -1,24 +1,21 @@
 import { myJobPostList } from "../data.js";
-import { renderApplicantsElement, renderCandidate } from "../employer/renderApplicants.js"
 
-const jobListContainer = document.getElementById("Job-List-Container");
-const jobDetailPopupContainer = document.querySelector(".job-detail-container-popup");
-const closejobPopupContainerBtn = document.querySelector(".close-popup");
+const jobRecent = document.getElementById("recentJob");
 
-
-export function renderJobPosts() {
+export function renderRecent() {
     let jobListHTML = "";
 
     myJobPostList.forEach((job, index) => {
         jobListHTML += `
+
                     <div
                         class="eachJob flex flex-col p-4 cursor-pointer hover:scale-105 transition duration-300 ease-in-out popJobDetail" id="job${index}">
                         <div
                             class="flex flex-col sm:flex-row bg-[#005030] text-white rounded-lg shadow-sm transition-all duration-300 ease-in-out hover:bg-[#a4d65e] hover:text-[#005030] sm:h-40 w-full">
 
-                            <div class="p-4 flex items-center justify-center">
+                            <div class="p-4 flex items-center justify-center ">
                                 <img src="${job.logoImg}" alt="${job.company} logo"
-                                    class="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover object-center" />
+                                    class="bg-white w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover object-center" />
                             </div>
 
                             <div class="flex flex-col leading-normal gap-3 justify-center h-full">
@@ -39,29 +36,9 @@ export function renderJobPosts() {
                             </div>
                         </div>
                     </div>
-        `;
+
+        `
     });
 
-    jobListContainer.innerHTML = jobListHTML;
+    jobRecent.innerHTML = jobListHTML;
 }
-
-jobListContainer.addEventListener("click", (e) => {
-    const card = e.target.closest(".popJobDetail");
-    if (!card) return;
-
-    const id = card.id;
-    const index = parseInt(id.replace("job", ""), 10);
-
-    jobListContainer.classList.add("hidden");
-    jobDetailPopupContainer.classList.remove("hidden");
-
-    renderApplicantsElement(index);
-    renderCandidate(index);
-});
-
-closejobPopupContainerBtn.addEventListener("click", () => {
-    jobListContainer.classList.remove("hidden");
-    jobDetailPopupContainer.classList.add("hidden");
-});
-
-

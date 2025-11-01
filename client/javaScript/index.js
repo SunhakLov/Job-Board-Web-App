@@ -1,5 +1,5 @@
-import { renderJobPosts } from "./employer/renderJob.js"
+import { renderRecent } from "./main-page/renderRecent.js";
 
-renderJobPosts();
-
-
+if (document.getElementById("recentJob")) {
+    renderRecent();
+}

@@ -78,5 +78,97 @@ export const myJobPostList = [
                 candidateNote: ""
             }
         ]
+    },
+    {
+        company: "Apple",
+        logoImg: "./images/logo/apple.jpg",
+        role: "iOS Developer",
+        paidRate: 40,
+        typeEmployment: "Full-time",
+        startDate: "Feb 5",
+        endDate: "Aug 1",
+        numberOfApplicants: 2,
+        applicants: [
+            {
+                candidateID: "111",
+                candidateName: "DogMeme3",
+                candidateEmail: "dogmeme3@cpp.edu",
+                candidateStatus: ["Interview", "yellow"],
+                candidatePhoto: "images/dog1.jpg",
+                candidateNote: ""
+            },
+            {
+                candidateID: "222",
+                candidateName: "Ryan3",
+                candidateEmail: "ryan3@cpp.edu",
+                candidateStatus: ["Offer", "green"],
+                candidatePhoto: "images/ryan-trahan-smile.jpg",
+                candidateNote: ""
+            }
+        ]
+    },
+    {
+        company: "Amazon",
+        logoImg: "./images/logo/amazon.jpg",
+        role: "Backend Engineer",
+        paidRate: 33,
+        typeEmployment: "Part-time",
+        startDate: "Mar 1",
+        endDate: "Jun 20",
+        numberOfApplicants: 3,
+        applicants: [
+            {
+                candidateID: "321",
+                candidateName: "CatMeme3",
+                candidateEmail: "catmeme3@cpp.edu",
+                candidateStatus: ["Reject", "red"],
+                candidatePhoto: "images/cat1.jpg",
+                candidateNote: ""
+            },
+            {
+                candidateID: "654",
+                candidateName: "Ryan4",
+                candidateEmail: "ryan4@cpp.edu",
+                candidateStatus: ["Interview", "yellow"],
+                candidatePhoto: "images/ryan-trahan-smile.jpg",
+                candidateNote: ""
+            },
+            {
+                candidateID: "987",
+                candidateName: "DogMeme4",
+                candidateEmail: "dogmeme4@cpp.edu",
+                candidateStatus: ["Offer", "green"],
+                candidatePhoto: "images/dog1.jpg",
+                candidateNote: ""
+            }
+        ]
+    },
+    {
+        company: "Netflix",
+        logoImg: "./images/logo/netflix.png",
+        role: "UI/UX Designer",
+        paidRate: 28,
+        typeEmployment: "Internship",
+        startDate: "May 10",
+        endDate: "Aug 25",
+        numberOfApplicants: 2,
+        applicants: [
+            {
+                candidateID: "888",
+                candidateName: "CatMeme5",
+                candidateEmail: "catmeme5@cpp.edu",
+                candidateStatus: ["Interview", "yellow"],
+                candidatePhoto: "images/cat1.jpg",
+                candidateNote: ""
+            },
+            {
+                candidateID: "999",
+                candidateName: "DogMeme5",
+                candidateEmail: "dogmeme5@cpp.edu",
+                candidateStatus: ["Offer", "green"],
+                candidatePhoto: "images/dog1.jpg",
+                candidateNote: ""
+            }
+        ]
     }
 ];
