@@ -1,4 +1,4 @@
-import { myJobPostList } from "../data.js";
+import { myJobPostList, saveJobPosts } from "../data.js";
 
 
 const newJobPostBtn = document.getElementById("newJobPostBtn");
@@ -17,6 +17,16 @@ function openPopUp() {
 function closePopUp() {
   popUp.classList.add("hidden");
   popUp.classList.remove("flex");
+}
+
+// Format date from YYYY-MM-DD to "Mon DD" format
+function formatDate(dateString) {
+  if (!dateString) return "";
+  const date = new Date(dateString + "T00:00:00"); // Add time to avoid timezone issues
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const month = months[date.getMonth()];
+  const day = date.getDate();
+  return `${month} ${day}`;
 }
 
 function renderTable() {
@@ -80,15 +90,22 @@ tableBody.innerHTML = rows.join("");
       const newJob = {
         company, 
         role,
-        paidRate,
+        paidRate: parseFloat(paidRate),
         typeEmployment,
-        startDate,
-        endDate,
+        startDate: formatDate(startDate),
+        endDate: formatDate(endDate),
         numberOfApplicants: 0,
+        logoImg: "./images/logo/meta.png", // Default logo, can be customized later
+        applicants: []
       };
 
       myJobPostList.push(newJob);
+      saveJobPosts(); // Save to localStorage
       renderTable();
+      
+      // Reset form and close modal
+      form.reset();
+      closePopUp();
 
     })
 

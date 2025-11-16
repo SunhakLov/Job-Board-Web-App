@@ -1,4 +1,5 @@
-export const myJobPostList = [
+// Default job posts
+const defaultJobPosts = [
     {
         company: "Meta",
         logoImg: "./images/logo/meta.png",
@@ -172,3 +173,48 @@ export const myJobPostList = [
         ]
     }
 ];
+
+// Load from localStorage or use default
+function loadJobPosts() {
+    const stored = localStorage.getItem('jobPosts');
+    if (stored) {
+        try {
+            const parsed = JSON.parse(stored);
+            // If we have stored data, use it (it includes defaults + new jobs)
+            // But ensure we have at least the defaults
+            if (parsed && parsed.length > 0) {
+                // Merge: start with defaults, then add any stored jobs that aren't defaults
+                const result = [...defaultJobPosts];
+                const defaultKeys = new Set(
+                    defaultJobPosts.map(job => `${job.company}-${job.role}`)
+                );
+                
+                parsed.forEach(job => {
+                    const key = `${job.company}-${job.role}`;
+                    if (!defaultKeys.has(key)) {
+                        result.push(job);
+                    }
+                });
+                
+                return result;
+            }
+            return defaultJobPosts;
+        } catch (e) {
+            console.error('Error parsing stored job posts:', e);
+            return defaultJobPosts;
+        }
+    }
+    return defaultJobPosts;
+}
+
+// Initialize job posts list
+export const myJobPostList = loadJobPosts();
+
+// Save to localStorage
+export function saveJobPosts() {
+    try {
+        localStorage.setItem('jobPosts', JSON.stringify(myJobPostList));
+    } catch (e) {
+        console.error('Error saving job posts to localStorage:', e);
+    }
+}
