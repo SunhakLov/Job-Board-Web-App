@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Profile</title>
+    <!-- Flowbite & Tailwind Css -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+
+    <!-- Font Awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Team Custom Styles -->
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body class="font-mono text-[#005030] h-screen ">
+    <header class="bg-white mx-auto">
+        <nav
+            class="bg-[linear-gradient(90deg,#FFB81C_32%,#A4D65E_100%)]  border-gray-200 fixed top-0 right-0 left-0 z-50">
+            <div class="max-w-screen w-[95vw] flex gap-6 items-center justify-between mx-auto p-8 ">
+                <div class="flex items-center justify-start rtl:justify-end gap-4">
+                    <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar"
+                        aria-controls="logo-sidebar" type="button"
+                        class="inline-flex items-center p-2 text-sm text-white bg-[#005030] rounded-lg sm:hidden hover:bg-[#a4d65e] hover:text-[#005030] outline-none focus:ring-2 focus:ring-gray-200">
+                        <span class="sr-only">Open sidebar</span>
+                        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path clip-rule="evenodd" fill-rule="evenodd"
+                                d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+                            </path>
+                        </svg>
+                    </button>
+                    <a href="index.html" class="flex ms-2 md:me-24">
+                        <span
+                            class="self-center font-semibold whitespace-nowrap text-[#005030] text-3xl transition-all duration-200 ease-in-out hover:text-black hover:underline underline-offset-8">BroncoBoard</span>
+                    </a>
+                </div>
+
+                <div class="flex items-center">
+                    <div class="flex items-center ms-3">
+                        <div>
+                            <button type="button"
+                                class="flex items-center justify-center w-12 h-12 bg-gray-700 text-white rounded-full focus:ring-4 focus:ring-gray-300 mr-5"
+                                aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                                <span class="sr-only">Open user menu</span>
+                                <i class="fa-jelly fa-regular fa-user"></i>
+                            </button>
+                        </div>
+                        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-sm shadow-sm dark:bg-gray-700 dark:divide-gray-600"
+                            id="dropdown-user">
+                            <div class="px-4 py-3" role="none">
+                                <p class="text-sm text-gray-900 dark:text-white" role="none">
+                                    Ryan Trahan
+                                </p>
+                                <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
+                                    ryan@cpp.edu
+                                </p>
+                            </div>
+                            <ul class="py-1" role="none">
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                        role="menuitem">Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                        role="menuitem">Sign out</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content ">
+        <!-- Sidebar Navigation -->
+        <aside id="logo-sidebar"
+            class="fixed top-0 left-0 z-40 w-64 h-screen pt-40 transition-transform -translate-x-full bg-[#005030] border-r border-gray-200 sm:translate-x-0 dark:border-gray-700"
+            aria-label="Sidebar">
+            <div class="h-full px-3 pb-4 overflow-y-auto bg-[#005030] ">
+                <ul class="space-y-10 font-medium p-2">
+                    <li>
+                        <a href="employee-profile.html"
+                            class="flex items-center p-2 rounded-lg hover:bg-[#a4d65e] group selected bg-[#a4d65e] text-[#005030]">
+                            <svg class="w-5 h-5 transition duration-75 group-hover:text-[#005030] group-hover:font-bold"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                viewBox="0 0 22 21">
+                                <path
+                                    d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
+                                <path
+                                    d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
+                            </svg>
+                            <span class="ms-3 group-hover:text-[#005030] group-hover:font-bold">My Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="employee-search.html"
+                            class="flex items-center p-2 rounded-lg text-white hover:bg-[#a4d65e] group">
+                            <svg class="shrink-0 w-5 h-5 text-white transition duration-75 group-hover:text-[#005030] group-hover:font-bold"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" />
+                            </svg>
+                            <span
+                                class="flex-1 ms-3 whitespace-nowrap group-hover:text-[#005030] group-hover:font-bold">Search
+                                Jobs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="employee-myjobs.html"
+                            class="flex items-center p-2 rounded-lg text-white hover:bg-[#a4d65e] group">
+                            <svg class="shrink-0 w-5 h-5 text-white transition duration-75 group-hover:text-[#005030] group-hover:font-bold"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                                <path fill-rule="evenodd"
+                                    d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span
+                                class="flex-1 ms-3 whitespace-nowrap group-hover:text-[#005030] group-hover:font-bold">My
+                                Jobs</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="p-4 sm:ml-64 h-full">
+            <div class="p-4 mt-25 overflow-y-scroll h-[85vh]">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Header -->
+                    <div class="pb-6">
+                        <p class="text-2xl font-semibold text-[#005030] pb-2">My Profile</p>
+                        <p class="text-gray-600">Manage your personal profile and professional information</p>
+                    </div>
+
+                    <!-- Profile Form -->
+                    <form id="profileForm" class="space-y-6">
+                        <!-- Profile Picture Section -->
+                        <div class="bg-white border-2 border-gray-200 rounded-lg p-6 shadow-sm">
+                            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+                                <div class="relative">
+                                    <img id="profileImage" src="./images/ryan-trahan-smile.jpg" alt="Profile Picture"
+                                        class="w-32 h-32 rounded-full object-cover border-4 border-[#005030] bg-gray-100">
+                                    <button type="button" id="changeImageBtn"
+                                        class="absolute bottom-0 right-0 bg-[#a4d65e] text-[#005030] rounded-full p-2 hover:bg-yellow-400 transition-all duration-200">
+                                        <i class="fa-solid fa-camera text-sm"></i>
+                                    </button>
+                                    <input type="file" id="imageUpload" accept="image/*" class="hidden">
+                                </div>
+                                <div class="flex-1 text-center sm:text-left">
+                                    <h3 class="text-xl font-bold text-[#005030] mb-2">Profile Picture</h3>
+                                    <p class="text-gray-600 text-sm mb-4">Upload your profile picture. Recommended size:
+                                        200x200px</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Personal Information Section -->
+                        <div class="bg-white border-2 border-gray-200 rounded-lg p-6 shadow-sm">
+                            <h3 class="text-xl font-bold text-[#005030] mb-4 pb-2 border-b border-gray-200">
+                                <i class="fa-solid fa-user mr-2"></i>Personal Information
+                            </h3>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="firstName" class="block mb-2 text-sm font-medium text-[#005030]">
+                                        First Name <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" id="firstName" name="firstName" required
+                                        class="bg-gray-50 border border-gray-300 text-[#005030] text-sm rounded-lg focus:ring-[#a4d65e] focus:border-[#a4d65e] block w-full p-3"
+                                        placeholder="Enter first name" value="Ryan">
+                                </div>
+
+                                <div>
+                                    <label for="lastName" class="block mb-2 text-sm font-medium text-[#005030]">
+                                        Last Name <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" id="lastName" name="lastName" required
+                                        class="bg-gray-50 border border-gray-300 text-[#005030] text-sm rounded-lg focus:ring-[#a4d65e] focus:border-[#a4d65e] block w-full p-3"
+                                        placeholder="Enter last name" value="Trahan">
+                                </div>
+
+                                <div>
+                                    <label for="email" class="block mb-2 text-sm font-medium text-[#005030]">
+                                        Email Address <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="email" id="email" name="email" required
+                                        class="bg-gray-50 border border-gray-300 text-[#005030] text-sm rounded-lg focus:ring-[#a4d65e] focus:border-[#a4d65e] block w-full p-3"
+                                        placeholder="your.email@example.com" value="ryan@cpp.edu">
+                                </div>
+
+                                <div>
+                                    <label for="phone" class="block mb-2 text-sm font-medium text-[#005030]">
+                                        Phone Number
+                                    </label>
+                                    <input type="tel" id="phone" name="phone"
+                                        class="bg-gray-50 border border-gray-300 text-[#005030] text-sm rounded-lg focus:ring-[#a4d65e] focus:border-[#a4d65e] block w-full p-3"
+                                        placeholder="(555) 123-4567">
+                                </div>
+
+                                <div>
+                                    <label for="location" class="block mb-2 text-sm font-medium text-[#005030]">
+                                        Location
+                                    </label>
+                                    <input type="text" id="location" name="location"
+                                        class="bg-gray-50 border border-gray-300 text-[#005030] text-sm rounded-lg focus:ring-[#a4d65e] focus:border-[#a4d65e] block w-full p-3"
+                                        placeholder="City, State">
+                                </div>
+
+                                <div>
+                                    <label for="linkedin" class="block mb-2 text-sm font-medium text-[#005030]">
+                                        LinkedIn Profile
+                                    </label>
+                                    <input type="url" id="linkedin" name="linkedin"
+                                        class="bg-gray-50 border border-gray-300 text-[#005030] text-sm rounded-lg focus:ring-[#a4d65e] focus:border-[#a4d65e] block w-full p-3"
+                                        placeholder="https://www.linkedin.com/in/yourprofile">
+                                </div>
+
+                                <div>
+                                    <label for="github" class="block mb-2 text-sm font-medium text-[#005030]">
+                                        GitHub Profile
+                                    </label>
+                                    <input type="url" id="github" name="github"
+                                        class="bg-gray-50 border border-gray-300 text-[#005030] text-sm rounded-lg focus:ring-[#a4d65e] focus:border-[#a4d65e] block w-full p-3"
+                                        placeholder="https://github.com/yourusername">
+                                </div>
+
+                                <div>
+                                    <label for="portfolio" class="block mb-2 text-sm font-medium text-[#005030]">
+                                        Portfolio Website
+                                    </label>
+                                    <input type="url" id="portfolio" name="portfolio"
+                                        class="bg-gray-50 border border-gray-300 text-[#005030] text-sm rounded-lg focus:ring-[#a4d65e] focus:border-[#a4d65e] block w-full p-3"
+                                        placeholder="https://www.yourportfolio.com">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4 justify-end pt-4">
+                            <button type="button" id="cancelBtn"
+                                class="px-6 py-3 text-[#005030] bg-white border-2 border-[#005030] rounded-lg font-medium hover:bg-gray-50 transition-all duration-200">
+                                Cancel
+                            </button>
+                            <button type="submit" id="saveBtn"
+                                class="px-6 py-3 text-white bg-[#005030] rounded-lg font-medium hover:bg-[#a4d65e] hover:text-[#005030] transition-all duration-200">
+                                <i class="fa-solid fa-floppy-disk mr-2"></i>Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- flowbite -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
+    <!-- Profile Script -->
+    <script>
+        // Image upload functionality
+        const changeImageBtn = document.getElementById('changeImageBtn');
+        const imageUpload = document.getElementById('imageUpload');
+        const profileImage = document.getElementById('profileImage');
+
+        changeImageBtn.addEventListener('click', () => {
+            imageUpload.click();
+        });
+
+        imageUpload.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    profileImage.src = event.target.result;
+                    // Save profile image to localStorage
+                    try {
+                        let profileData = {};
+                        const saved = localStorage.getItem('employeeProfile');
+                        if (saved) {
+                            profileData = JSON.parse(saved);
+                        }
+                        profileData.profileImage = event.target.result;
+                        localStorage.setItem('employeeProfile', JSON.stringify(profileData));
+                    } catch (e) {
+                        console.warn('Could not save profile image:', e);
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+
+        // Load saved profile data on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            try {
+                const saved = localStorage.getItem('employeeProfile');
+                if (saved) {
+                    const profileData = JSON.parse(saved);
+
+                    // Load profile image
+                    if (profileData.profileImage) {
+                        profileImage.src = profileData.profileImage;
+                    } else {
+                        // Default to Ryan Trahan image
+                        profileImage.src = './images/ryan-trahan-smile.jpg';
+                    }
+
+                    // Load form fields
+                    if (profileData.firstName) document.getElementById('firstName').value = profileData.firstName;
+                    if (profileData.lastName) document.getElementById('lastName').value = profileData.lastName;
+                    if (profileData.email) document.getElementById('email').value = profileData.email;
+                    if (profileData.phone) document.getElementById('phone').value = profileData.phone;
+                    if (profileData.location) document.getElementById('location').value = profileData.location;
+                    if (profileData.linkedin) document.getElementById('linkedin').value = profileData.linkedin;
+                    if (profileData.github) document.getElementById('github').value = profileData.github;
+                    if (profileData.portfolio) document.getElementById('portfolio').value = profileData.portfolio;
+                } else {
+                    // Set default profile image if no saved data
+                    profileImage.src = './images/ryan-trahan-smile.jpg';
+                }
+            } catch (e) {
+                console.warn('Could not load profile data:', e);
+                // Set default profile image on error
+                profileImage.src = './images/ryan-trahan-smile.jpg';
+            }
+        });
+
+        // Form submission
+        const profileForm = document.getElementById('profileForm');
+        const saveBtn = document.getElementById('saveBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+
+        profileForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(profileForm);
+            const profileData = {};
+            formData.forEach((value, key) => {
+                profileData[key] = value;
+            });
+
+            // Save profile image if it exists
+            if (profileImage.src && profileImage.src !== 'https://flowbite.com/docs/images/logo.svg') {
+                profileData.profileImage = profileImage.src;
+            }
+
+
+            // Save to localStorage
+            try {
+                localStorage.setItem('employeeProfile', JSON.stringify(profileData));
+            } catch (e) {
+                console.warn('Could not save to localStorage:', e);
+            }
+
+            // Simulate saving (in real app, this would send to server)
+            console.log('Saving profile data:', profileData);
+
+            // Show success message
+            saveBtn.innerHTML = '<i class="fa-solid fa-check mr-2"></i>Saved!';
+            saveBtn.classList.remove('bg-[#005030]', 'hover:bg-[#a4d65e]');
+            saveBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+
+            setTimeout(() => {
+                saveBtn.innerHTML = '<i class="fa-solid fa-floppy-disk mr-2"></i>Save Changes';
+                saveBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                saveBtn.classList.add('bg-[#005030]', 'hover:bg-[#a4d65e]');
+            }, 2000);
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            if (confirm('Are you sure you want to cancel? All unsaved changes will be lost.')) {
+                profileForm.reset();
+                // Reset image to default (Ryan Trahan)
+                profileImage.src = './images/ryan-trahan-smile.jpg';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
