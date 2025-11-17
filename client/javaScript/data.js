@@ -44,7 +44,7 @@ const defaultJobPosts = [
         typeEmployment: "Co-op",
         startDate: "Jan 10",
         endDate: "Apr 15",
-        numberOfApplicants: 4,
+        numberOfApplicants: 3,
         applicants: [
             {
                 candidateID: "123",
