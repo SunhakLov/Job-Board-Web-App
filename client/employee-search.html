@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Jobs</title>
+    <!-- Flowbite & Tailwind Css -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+
+    <!-- Font Awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Team Custom Styles -->
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body class="font-mono text-[#005030] h-screen ">
+    <header class="bg-white mx-auto">
+        <nav
+            class="bg-[linear-gradient(90deg,#FFB81C_32%,#A4D65E_100%)]  border-gray-200 fixed top-0 right-0 left-0 z-50">
+            <div class="max-w-screen w-[95vw] flex gap-6 items-center justify-between mx-auto p-8 ">
+                <div class="flex items-center justify-start rtl:justify-end gap-4">
+                    <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar"
+                        aria-controls="logo-sidebar" type="button"
+                        class="inline-flex items-center p-2 text-sm text-white bg-[#005030] rounded-lg sm:hidden hover:bg-[#a4d65e] hover:text-[#005030] outline-none focus:ring-2 focus:ring-gray-200">
+                        <span class="sr-only">Open sidebar</span>
+                        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path clip-rule="evenodd" fill-rule="evenodd"
+                                d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+                            </path>
+                        </svg>
+                    </button>
+                    <a href="index.html" class="flex ms-2 md:me-24">
+                        <span
+                            class="self-center font-semibold whitespace-nowrap text-[#005030] text-3xl transition-all duration-200 ease-in-out hover:text-black hover:underline underline-offset-8">BroncoBoard</span>
+                    </a>
+                </div>
+
+                <div class="flex items-center">
+                    <div class="flex items-center ms-3">
+                        <div>
+                            <button type="button"
+                                class="flex items-center justify-center w-12 h-12 bg-gray-700 text-white rounded-full focus:ring-4 focus:ring-gray-300 mr-5"
+                                aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                                <span class="sr-only">Open user menu</span>
+                                <i class="fa-jelly fa-regular fa-user"></i>
+                            </button>
+                        </div>
+                        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-sm shadow-sm dark:bg-gray-700 dark:divide-gray-600"
+                            id="dropdown-user">
+                            <div class="px-4 py-3" role="none">
+                                <p class="text-sm text-gray-900 dark:text-white" role="none">
+                                    Ryan Trahan
+                                </p>
+                                <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
+                                    ryan@cpp.edu
+                                </p>
+                            </div>
+                            <ul class="py-1" role="none">
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                        role="menuitem">Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                        role="menuitem">Sign out</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content ">
+        <!-- Sidebar Navigation -->
+        <aside id="logo-sidebar"
+            class="fixed top-0 left-0 z-40 w-64 h-screen pt-40 transition-transform -translate-x-full bg-[#005030] border-r border-gray-200 sm:translate-x-0 dark:border-gray-700"
+            aria-label="Sidebar">
+            <div class="h-full px-3 pb-4 overflow-y-auto bg-[#005030] ">
+                <ul class="space-y-10 font-medium p-2">
+                    <li>
+                        <a href="employee-profile.html"
+                            class="flex items-center p-2 rounded-lg hover:bg-[#a4d65e] group text-white">
+                            <svg class="w-5 h-5 transition duration-75 group-hover:text-[#005030] group-hover:font-bold"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                viewBox="0 0 22 21">
+                                <path
+                                    d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
+                                <path
+                                    d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
+                            </svg>
+                            <span class="ms-3 group-hover:text-[#005030] group-hover:font-bold">My Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="employee-search.html"
+                            class="flex items-center p-2 rounded-lg hover:bg-[#a4d65e] group selected bg-[#a4d65e] text-[#005030]">
+                            <svg class="shrink-0 w-5 h-5 text-[#005030] transition duration-75 group-hover:text-[#005030] group-hover:font-bold"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" />
+                            </svg>
+                            <span
+                                class="flex-1 ms-3 whitespace-nowrap group-hover:text-[#005030] group-hover:font-bold font-bold">Search
+                                Jobs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="employee-myjobs.html"
+                            class="flex items-center p-2 rounded-lg text-white hover:bg-[#a4d65e] group">
+                            <svg class="shrink-0 w-5 h-5 text-white transition duration-75 group-hover:text-[#005030] group-hover:font-bold"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                                <path fill-rule="evenodd"
+                                    d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span
+                                class="flex-1 ms-3 whitespace-nowrap group-hover:text-[#005030] group-hover:font-bold">My
+                                Jobs</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="p-4 sm:ml-64 h-full">
+            <div class="p-4 mt-25 overflow-y-scroll h-[85vh]">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Header -->
+                    <div class="pb-6">
+                        <p class="text-2xl font-semibold text-[#005030] pb-2">Search Jobs</p>
+                        <p class="text-gray-600">Find your perfect job opportunity at Cal Poly Pomona</p>
+                    </div>
+
+                    <!-- Search Form -->
+                    <div class="bg-white border-2 border-gray-200 rounded-lg p-6 shadow-sm mb-6">
+                        <form id="searchForm" class="flex flex-col md:flex-row gap-4">
+                            <div class="flex-1 relative">
+                                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                    <svg class="w-5 h-5 text-[#005030]" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                    </svg>
+                                </div>
+                                <input type="text" id="searchInput"
+                                    class="bg-gray-50 border border-gray-300 text-[#005030] text-sm rounded-lg focus:ring-[#a4d65e] focus:border-[#a4d65e] block w-full ps-10 p-3"
+                                    placeholder="Search by company, role, or keywords..." />
+                            </div>
+                            <div class="flex gap-2">
+                                <select id="employmentTypeFilter"
+                                    class="bg-gray-50 border border-gray-300 text-[#005030] text-sm rounded-lg focus:ring-[#a4d65e] focus:border-[#a4d65e] block p-3">
+                                    <option value="">All Types</option>
+                                    <option value="Full-time">Full-time</option>
+                                    <option value="Part-time">Part-time</option>
+                                    <option value="Internship">Internship</option>
+                                    <option value="Co-op">Co-op</option>
+                                </select>
+                                <button type="submit"
+                                    class="px-6 py-3 text-white bg-[#005030] rounded-lg font-medium hover:bg-[#a4d65e] hover:text-[#005030] transition-all duration-200">
+                                    <i class="fa-solid fa-search mr-2"></i>Search
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="bg-white border-2 border-gray-200 rounded-lg p-6 shadow-sm">
+                        <div class="flex justify-between items-center mb-4">
+                            <p class="text-lg font-semibold text-[#005030]" id="resultsCount">All Jobs</p>
+                            <button type="button" id="clearFilters"
+                                class="text-sm text-[#005030] hover:text-[#a4d65e] transition-all duration-200 hidden">
+                                Clear Filters
+                            </button>
+                        </div>
+                        <div id="jobResults" class="flex flex-col gap-4">
+                            <!-- Job results will be rendered here -->
+                        </div>
+                        <div id="noResults" class="text-center py-12 hidden">
+                            <i class="fa-solid fa-search text-6xl text-gray-300 mb-4"></i>
+                            <p class="text-xl font-semibold text-gray-600 mb-2">No jobs found</p>
+                            <p class="text-gray-500">Try adjusting your search criteria</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- flowbite -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
+    <!-- Search Script -->
+    <script type="module">
+        import { myJobPostList, saveJobPosts } from "./javaScript/data.js";
+
+        const searchForm = document.getElementById('searchForm');
+        const searchInput = document.getElementById('searchInput');
+        const employmentTypeFilter = document.getElementById('employmentTypeFilter');
+        const jobResults = document.getElementById('jobResults');
+        const noResults = document.getElementById('noResults');
+        const resultsCount = document.getElementById('resultsCount');
+        const clearFilters = document.getElementById('clearFilters');
+
+        // Get current employee information
+        function getCurrentEmployee() {
+            try {
+                const saved = localStorage.getItem('employeeProfile');
+                if (saved) {
+                    const profileData = JSON.parse(saved);
+                    return {
+                        candidateID: profileData.email ? profileData.email.replace('@', '_').replace('.', '_') : 'employee_' + Date.now(),
+                        candidateName: `${profileData.firstName || 'Ryan'} ${profileData.lastName || 'Trahan'}`,
+                        candidateEmail: profileData.email || 'ryan@cpp.edu',
+                        candidateStatus: ["Pending", "gray"],
+                        candidatePhoto: profileData.profileImage || './images/ryan-trahan-smile.jpg',
+                        candidateNote: ""
+                    };
+                }
+            } catch (e) {
+                console.warn('Could not load employee profile:', e);
+            }
+            // Default employee info
+            return {
+                candidateID: 'ryan_cpp_edu',
+                candidateName: 'Ryan Trahan',
+                candidateEmail: 'ryan@cpp.edu',
+                candidateStatus: ["Pending", "gray"],
+                candidatePhoto: './images/ryan-trahan-smile.jpg',
+                candidateNote: ""
+            };
+        }
+
+        // Check if employee has already applied to a job
+        function hasApplied(job, employeeEmail) {
+            return job.applicants && job.applicants.some(applicant => applicant.candidateEmail === employeeEmail);
+        }
+
+        // Apply to a job
+        function applyToJob(jobIndex) {
+            const job = myJobPostList[jobIndex];
+            const currentEmployee = getCurrentEmployee();
+
+            // Check if already applied
+            if (hasApplied(job, currentEmployee.candidateEmail)) {
+                alert('You have already applied to this job!');
+                return;
+            }
+
+            // Add employee to applicants array
+            if (!job.applicants) {
+                job.applicants = [];
+            }
+            job.applicants.push(currentEmployee);
+
+            // Update number of applicants
+            job.numberOfApplicants = job.applicants.length;
+
+            // Save to localStorage
+            saveJobPosts();
+
+            // Re-render jobs to update the UI
+            filterJobs();
+
+            alert(`Successfully applied to ${job.company} - ${job.role}!`);
+        }
+
+        // Cancel/Withdraw application from a job
+        function cancelApplication(jobIndex) {
+            const job = myJobPostList[jobIndex];
+            const currentEmployee = getCurrentEmployee();
+
+            // Check if employee has applied
+            if (!hasApplied(job, currentEmployee.candidateEmail)) {
+                alert('You have not applied to this job!');
+                return;
+            }
+
+            // Confirm cancellation
+            if (!confirm(`Are you sure you want to cancel your application to ${job.company} - ${job.role}?`)) {
+                return;
+            }
+
+            // Remove employee from applicants array
+            if (job.applicants) {
+                job.applicants = job.applicants.filter(
+                    applicant => applicant.candidateEmail !== currentEmployee.candidateEmail
+                );
+            }
+
+            // Update number of applicants
+            job.numberOfApplicants = job.applicants ? job.applicants.length : 0;
+
+            // Save to localStorage
+            saveJobPosts();
+
+            // Re-render jobs to update the UI
+            filterJobs();
+
+            alert(`Application cancelled for ${job.company} - ${job.role}.`);
+        }
+
+        function renderJobs(jobs) {
+            if (jobs.length === 0) {
+                jobResults.classList.add('hidden');
+                noResults.classList.remove('hidden');
+                resultsCount.textContent = 'No Jobs Found';
+                return;
+            }
+
+            jobResults.classList.remove('hidden');
+            noResults.classList.add('hidden');
+            resultsCount.textContent = `${jobs.length} Job${jobs.length !== 1 ? 's' : ''} Found`;
+
+            const currentEmployee = getCurrentEmployee();
+            let jobListHTML = "";
+            
+            jobs.forEach((job) => {
+                // Find the actual index in myJobPostList
+                const jobIndex = myJobPostList.findIndex(j => 
+                    j.company === job.company && j.role === job.role
+                );
+                
+                const alreadyApplied = hasApplied(job, currentEmployee.candidateEmail);
+                const applyButtonHTML = alreadyApplied
+                    ? `<button data-job-index="${jobIndex}" class="cancel-btn px-4 py-2 bg-red-500 text-white rounded-lg font-medium hover:bg-red-600 transition-all duration-200">
+                            <i class="fa-solid fa-times mr-2"></i>Cancel Application
+                        </button>`
+                    : `<button data-job-index="${jobIndex}" class="apply-btn px-4 py-2 bg-[#a4d65e] text-[#005030] rounded-lg font-medium hover:bg-yellow-400 transition-all duration-200">
+                            <i class="fa-solid fa-paper-plane mr-2"></i>Apply Now
+                        </button>`;
+
+                jobListHTML += `
+                    <div class="eachJob flex flex-col p-4 hover:scale-[1.02] transition duration-300 ease-in-out">
+                        <div class="flex flex-col sm:flex-row bg-[#005030] text-white rounded-lg shadow-sm transition-all duration-300 ease-in-out hover:bg-[#a4d65e] hover:text-[#005030] w-full">
+                            <div class="p-4 flex items-center justify-center">
+                                <img src="${job.logoImg}" alt="${job.company} logo"
+                                    class="bg-white w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover object-center" />
+                            </div>
+                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 flex-1 p-4">
+                                <div class="flex flex-col leading-normal gap-3 justify-center h-full">
+                                    <div class="company-role pt-2">
+                                        <p class="font-bold text-base md:text-base">${job.company}</p>
+                                        <p class="text-lg md:text-xl font-bold tracking-tight">
+                                            ${job.role}
+                                        </p>
+                                    </div>
+                                    <p class="font-thin text-sm">
+                                        <span class="salary">$${job.paidRate}/hr</span> &middot;
+                                        <span class="type">${job.typeEmployment}</span> &middot;
+                                        <span class="duration">${job.startDate} - ${job.endDate}</span>
+                                    </p>
+                                    <p class="font-thin text-sm">
+                                        Number of Applications: <span>${job.numberOfApplicants}</span> Application${job.numberOfApplicants !== 1 ? 's' : ''}
+                                    </p>
+                                </div>
+                                <div class="flex-shrink-0 mt-2 sm:mt-0">
+                                    ${applyButtonHTML}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            jobResults.innerHTML = jobListHTML;
+
+            // Add event listeners to apply buttons
+            document.querySelectorAll('.apply-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const jobIndex = parseInt(btn.getAttribute('data-job-index'));
+                    applyToJob(jobIndex);
+                });
+            });
+
+            // Add event listeners to cancel buttons
+            document.querySelectorAll('.cancel-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const jobIndex = parseInt(btn.getAttribute('data-job-index'));
+                    cancelApplication(jobIndex);
+                });
+            });
+        }
+
+        function filterJobs() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            const employmentType = employmentTypeFilter.value;
+
+            const filtered = myJobPostList.filter(job => {
+                const matchesSearch = !searchTerm || 
+                    job.company.toLowerCase().includes(searchTerm) ||
+                    job.role.toLowerCase().includes(searchTerm);
+                
+                const matchesType = !employmentType || job.typeEmployment === employmentType;
+
+                return matchesSearch && matchesType;
+            });
+
+            renderJobs(filtered);
+
+            // Show/hide clear filters button
+            if (searchTerm || employmentType) {
+                clearFilters.classList.remove('hidden');
+            } else {
+                clearFilters.classList.add('hidden');
+            }
+        }
+
+        // Initial render
+        renderJobs(myJobPostList);
+
+        // Search form submission
+        searchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            filterJobs();
+        });
+
+        // Real-time filtering on input change
+        searchInput.addEventListener('input', filterJobs);
+        employmentTypeFilter.addEventListener('change', filterJobs);
+
+        // Clear filters
+        clearFilters.addEventListener('click', () => {
+            searchInput.value = '';
+            employmentTypeFilter.value = '';
+            filterJobs();
+        });
+    </script>
+
+</body>
+
+</html>
+

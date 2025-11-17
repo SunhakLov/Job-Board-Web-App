@@ -1,5 +1,5 @@
 import { renderCandidate } from "./renderApplicants.js";
-import { myJobPostList } from "../data.js";
+import { myJobPostList, saveJobPosts } from "../data.js";
 
 const CandidateScreen = document.getElementById("Candidate-Screen");
 const settingCandidateScreen = document.querySelector(".settingCandidateScreen");
@@ -96,6 +96,9 @@ CandidateScreen.addEventListener("click", (e) => {
             }
         });
 
+        // Save to localStorage
+        saveJobPosts();
+
         interviewBtn.classList.add("bg-yellow-200", "scale-95");
         interviewBtn.textContent = "Requested";
 
@@ -119,6 +122,9 @@ CandidateScreen.addEventListener("click", (e) => {
                 applicant.candidateStatus = ["Reject", "red"];
             }
         });
+
+        // Save to localStorage
+        saveJobPosts();
 
         rejectBtn.classList.add("bg-red-300", "scale-95");
         rejectBtn.textContent = "Rejected";
@@ -145,6 +151,9 @@ CandidateScreen.addEventListener("click", (e) => {
             }
         });
 
+        // Save to localStorage
+        saveJobPosts();
+
         offerBtn.classList.add("bg-green-200", "scale-95");
         offerBtn.textContent = "Offered";
 
@@ -170,6 +179,9 @@ CandidateScreen.addEventListener("click", (e) => {
                 applicant.candidateNote = saveComment.value;
             }
         });
+
+        // Save to localStorage
+        saveJobPosts();
 
         saveBtn.classList.add("bg-yellow-200", "scale-95");
         saveBtn.textContent = "Saved";

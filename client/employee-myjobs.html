@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Jobs</title>
+    <!-- Flowbite & Tailwind Css -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+
+    <!-- Font Awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Team Custom Styles -->
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body class="font-mono text-[#005030] h-screen ">
+    <header class="bg-white mx-auto">
+        <nav
+            class="bg-[linear-gradient(90deg,#FFB81C_32%,#A4D65E_100%)]  border-gray-200 fixed top-0 right-0 left-0 z-50">
+            <div class="max-w-screen w-[95vw] flex gap-6 items-center justify-between mx-auto p-8 ">
+                <div class="flex items-center justify-start rtl:justify-end gap-4">
+                    <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar"
+                        aria-controls="logo-sidebar" type="button"
+                        class="inline-flex items-center p-2 text-sm text-white bg-[#005030] rounded-lg sm:hidden hover:bg-[#a4d65e] hover:text-[#005030] outline-none focus:ring-2 focus:ring-gray-200">
+                        <span class="sr-only">Open sidebar</span>
+                        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path clip-rule="evenodd" fill-rule="evenodd"
+                                d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+                            </path>
+                        </svg>
+                    </button>
+                    <a href="index.html" class="flex ms-2 md:me-24">
+                        <span
+                            class="self-center font-semibold whitespace-nowrap text-[#005030] text-3xl transition-all duration-200 ease-in-out hover:text-black hover:underline underline-offset-8">BroncoBoard</span>
+                    </a>
+                </div>
+
+                <div class="flex items-center">
+                    <div class="flex items-center ms-3">
+                        <div>
+                            <button type="button"
+                                class="flex items-center justify-center w-12 h-12 bg-gray-700 text-white rounded-full focus:ring-4 focus:ring-gray-300 mr-5"
+                                aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                                <span class="sr-only">Open user menu</span>
+                                <i class="fa-jelly fa-regular fa-user"></i>
+                            </button>
+                        </div>
+                        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-sm shadow-sm dark:bg-gray-700 dark:divide-gray-600"
+                            id="dropdown-user">
+                            <div class="px-4 py-3" role="none">
+                                <p class="text-sm text-gray-900 dark:text-white" role="none">
+                                    Ryan Trahan
+                                </p>
+                                <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
+                                    ryan@cpp.edu
+                                </p>
+                            </div>
+                            <ul class="py-1" role="none">
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                        role="menuitem">Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                        role="menuitem">Sign out</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content ">
+        <!-- Sidebar Navigation -->
+        <aside id="logo-sidebar"
+            class="fixed top-0 left-0 z-40 w-64 h-screen pt-40 transition-transform -translate-x-full bg-[#005030] border-r border-gray-200 sm:translate-x-0 dark:border-gray-700"
+            aria-label="Sidebar">
+            <div class="h-full px-3 pb-4 overflow-y-auto bg-[#005030] ">
+                <ul class="space-y-10 font-medium p-2">
+                    <li>
+                        <a href="employee-profile.html"
+                            class="flex items-center p-2 rounded-lg hover:bg-[#a4d65e] group text-white">
+                            <svg class="w-5 h-5 transition duration-75 group-hover:text-[#005030] group-hover:font-bold"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                viewBox="0 0 22 21">
+                                <path
+                                    d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
+                                <path
+                                    d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
+                            </svg>
+                            <span class="ms-3 group-hover:text-[#005030] group-hover:font-bold">My Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="employee-search.html"
+                            class="flex items-center p-2 rounded-lg text-white hover:bg-[#a4d65e] group">
+                            <svg class="shrink-0 w-5 h-5 text-white transition duration-75 group-hover:text-[#005030] group-hover:font-bold"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" />
+                            </svg>
+                            <span
+                                class="flex-1 ms-3 whitespace-nowrap group-hover:text-[#005030] group-hover:font-bold">Search
+                                Jobs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="employee-myjobs.html"
+                            class="flex items-center p-2 rounded-lg hover:bg-[#a4d65e] group selected bg-[#a4d65e] text-[#005030]">
+                            <svg class="shrink-0 w-5 h-5 text-[#005030] transition duration-75 group-hover:text-[#005030] group-hover:font-bold"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                                <path fill-rule="evenodd"
+                                    d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span
+                                class="flex-1 ms-3 whitespace-nowrap group-hover:text-[#005030] group-hover:font-bold font-bold">My
+                                Jobs</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="p-4 sm:ml-64 h-full">
+            <div class="p-4 mt-25 overflow-y-scroll h-[85vh]">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Header -->
+                    <div class="pb-6">
+                        <p class="text-2xl font-semibold text-[#005030] pb-2">My Applications</p>
+                        <p class="text-gray-600">Track all your job applications and their status</p>
+                    </div>
+
+                    <!-- Filter Tabs -->
+                    <div class="bg-white border-2 border-gray-200 rounded-lg p-4 shadow-sm mb-6">
+                        <div class="flex flex-wrap gap-2">
+                            <button data-filter="all" class="filter-btn active px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-[#005030] text-white hover:bg-[#a4d65e] hover:text-[#005030]">
+                                All Applications
+                            </button>
+                            <button data-filter="Pending" class="filter-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300">
+                                Pending
+                            </button>
+                            <button data-filter="Interview" class="filter-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-yellow-200 text-yellow-800 hover:bg-yellow-300">
+                                Interview
+                            </button>
+                            <button data-filter="Offer" class="filter-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-green-200 text-green-800 hover:bg-green-300">
+                                Offer
+                            </button>
+                            <button data-filter="Reject" class="filter-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-red-200 text-red-800 hover:bg-red-300">
+                                Rejected
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Applications List -->
+                    <div class="bg-white border-2 border-gray-200 rounded-lg p-6 shadow-sm">
+                        <div class="flex justify-between items-center mb-4">
+                            <p class="text-lg font-semibold text-[#005030]" id="applicationsCount">My Applications</p>
+                        </div>
+                        <div id="applicationsList" class="flex flex-col gap-4">
+                            <!-- Applications will be rendered here -->
+                        </div>
+                        <div id="noApplications" class="text-center py-12 hidden">
+                            <i class="fa-solid fa-briefcase text-6xl text-gray-300 mb-4"></i>
+                            <p class="text-xl font-semibold text-gray-600 mb-2">No applications found</p>
+                            <p class="text-gray-500 mb-4">You haven't applied to any jobs yet</p>
+                            <a href="employee-search.html" class="inline-block px-6 py-3 text-white bg-[#005030] rounded-lg font-medium hover:bg-[#a4d65e] hover:text-[#005030] transition-all duration-200">
+                                <i class="fa-solid fa-search mr-2"></i>Search Jobs
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- flowbite -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
+    <!-- My Jobs Script -->
+    <script type="module">
+        import { myJobPostList, saveJobPosts, reloadJobPosts } from "./javaScript/data.js";
+
+        const applicationsList = document.getElementById('applicationsList');
+        const noApplications = document.getElementById('noApplications');
+        const applicationsCount = document.getElementById('applicationsCount');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+
+        // Get current employee information
+        function getCurrentEmployee() {
+            try {
+                const saved = localStorage.getItem('employeeProfile');
+                if (saved) {
+                    const profileData = JSON.parse(saved);
+                    return {
+                        candidateEmail: profileData.email || 'ryan@cpp.edu'
+                    };
+                }
+            } catch (e) {
+                console.warn('Could not load employee profile:', e);
+            }
+            return {
+                candidateEmail: 'ryan@cpp.edu'
+            };
+        }
+
+        // Get status badge HTML
+        function getStatusBadge(status) {
+            const statusMap = {
+                'Pending': { text: 'Pending', color: 'gray', bgColor: 'bg-gray-100', textColor: 'text-gray-800' },
+                'Interview': { text: 'Interview', color: 'yellow', bgColor: 'bg-yellow-100', textColor: 'text-yellow-800' },
+                'Offer': { text: 'Offer', color: 'green', bgColor: 'bg-green-100', textColor: 'text-green-800' },
+                'Reject': { text: 'Rejected', color: 'red', bgColor: 'bg-red-100', textColor: 'text-red-800' }
+            };
+
+            const statusInfo = statusMap[status] || statusMap['Pending'];
+            return `<span class="px-3 py-1 rounded-full text-sm font-medium ${statusInfo.bgColor} ${statusInfo.textColor}">
+                ${statusInfo.text}
+            </span>`;
+        }
+
+        // Get all applications for current employee
+        function getMyApplications() {
+            // Reload data to ensure we have the latest status updates
+            reloadJobPosts();
+            const currentEmployee = getCurrentEmployee();
+            const applications = [];
+
+            myJobPostList.forEach((job, jobIndex) => {
+                if (job.applicants && job.applicants.length > 0) {
+                    const myApplication = job.applicants.find(
+                        applicant => applicant.candidateEmail === currentEmployee.candidateEmail
+                    );
+
+                    if (myApplication) {
+                        applications.push({
+                            jobIndex: jobIndex,
+                            job: job,
+                            application: myApplication
+                        });
+                    }
+                }
+            });
+
+            return applications;
+        }
+
+        // Cancel application
+        function cancelApplication(jobIndex) {
+            const job = myJobPostList[jobIndex];
+            const currentEmployee = getCurrentEmployee();
+
+            // Confirm cancellation
+            if (!confirm(`Are you sure you want to cancel your application to ${job.company} - ${job.role}?`)) {
+                return;
+            }
+
+            // Remove employee from applicants array
+            if (job.applicants) {
+                job.applicants = job.applicants.filter(
+                    applicant => applicant.candidateEmail !== currentEmployee.candidateEmail
+                );
+            }
+
+            // Update number of applicants
+            job.numberOfApplicants = job.applicants ? job.applicants.length : 0;
+
+            // Save to localStorage
+            saveJobPosts();
+
+            // Re-render applications
+            renderApplications(currentFilter);
+            alert(`Application cancelled for ${job.company} - ${job.role}.`);
+        }
+
+        let currentFilter = 'all';
+
+        // Render applications
+        function renderApplications(filter = 'all') {
+            currentFilter = filter;
+            const applications = getMyApplications();
+            
+            // Filter by status
+            const filteredApplications = filter === 'all' 
+                ? applications 
+                : applications.filter(app => app.application.candidateStatus[0] === filter);
+
+            if (filteredApplications.length === 0) {
+                applicationsList.classList.add('hidden');
+                noApplications.classList.remove('hidden');
+                if (applications.length === 0) {
+                    applicationsCount.textContent = 'No Applications';
+                } else {
+                    applicationsCount.textContent = `No ${filter === 'all' ? '' : filter} Applications`;
+                }
+                return;
+            }
+
+            applicationsList.classList.remove('hidden');
+            noApplications.classList.add('hidden');
+            applicationsCount.textContent = `${filteredApplications.length} Application${filteredApplications.length !== 1 ? 's' : ''} ${filter === 'all' ? '' : `(${filter})`}`;
+
+            let applicationsHTML = "";
+            filteredApplications.forEach(({ jobIndex, job, application }) => {
+                const status = application.candidateStatus[0];
+                const statusBadge = getStatusBadge(status);
+
+                applicationsHTML += `
+                    <div class="application-card border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 ease-in-out">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 flex-1">
+                                <div class="flex-shrink-0">
+                                    <img src="${job.logoImg}" alt="${job.company} logo"
+                                        class="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover object-center bg-white border-2 border-gray-200" />
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
+                                        <h3 class="text-xl font-bold text-[#005030]">${job.company}</h3>
+                                        <span class="text-gray-500">•</span>
+                                        <p class="text-lg font-semibold text-gray-700">${job.role}</p>
+                                    </div>
+                                    <div class="flex flex-wrap gap-3 text-sm text-gray-600 mb-3">
+                                        <span class="flex items-center gap-1">
+                                            <i class="fa-solid fa-dollar-sign"></i>
+                                            <span>$${job.paidRate}/hr</span>
+                                        </span>
+                                        <span class="flex items-center gap-1">
+                                            <i class="fa-solid fa-briefcase"></i>
+                                            <span>${job.typeEmployment}</span>
+                                        </span>
+                                        <span class="flex items-center gap-1">
+                                            <i class="fa-solid fa-calendar"></i>
+                                            <span>${job.startDate} - ${job.endDate}</span>
+                                        </span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-sm text-gray-600">Status:</span>
+                                        ${statusBadge}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-2 flex-shrink-0">
+                                <button data-job-index="${jobIndex}" 
+                                    class="cancel-application-btn px-4 py-2 bg-red-500 text-white rounded-lg font-medium hover:bg-red-600 transition-all duration-200">
+                                    <i class="fa-solid fa-times mr-2"></i>Cancel Application
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            applicationsList.innerHTML = applicationsHTML;
+
+            // Add event listeners to cancel buttons
+            document.querySelectorAll('.cancel-application-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const jobIndex = parseInt(btn.getAttribute('data-job-index'));
+                    cancelApplication(jobIndex);
+                });
+            });
+        }
+
+        // Filter button event listeners
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                filterButtons.forEach(b => {
+                    b.classList.remove('active', 'bg-[#005030]', 'text-white');
+                    b.classList.add('bg-gray-200', 'text-gray-700');
+                });
+                btn.classList.add('active', 'bg-[#005030]', 'text-white');
+                btn.classList.remove('bg-gray-200', 'text-gray-700');
+
+                const filter = btn.getAttribute('data-filter');
+                renderApplications(filter);
+            });
+        });
+
+        // Initial render
+        renderApplications('all');
+    </script>
+
+</body>
+
+</html>
+

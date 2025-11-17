@@ -183,15 +183,26 @@ function loadJobPosts() {
             // If we have stored data, use it (it includes defaults + new jobs)
             // But ensure we have at least the defaults
             if (parsed && parsed.length > 0) {
-                // Merge: start with defaults, then add any stored jobs that aren't defaults
-                const result = [...defaultJobPosts];
+                // Create a map of default jobs for quick lookup
                 const defaultKeys = new Set(
                     defaultJobPosts.map(job => `${job.company}-${job.role}`)
                 );
                 
+                // Start with stored jobs (which may include modified defaults)
+                const result = [];
+                const processedKeys = new Set();
+                
+                // First, add all stored jobs (this includes modified defaults)
                 parsed.forEach(job => {
                     const key = `${job.company}-${job.role}`;
-                    if (!defaultKeys.has(key)) {
+                    result.push(job);
+                    processedKeys.add(key);
+                });
+                
+                // Then, add any default jobs that weren't in stored data
+                defaultJobPosts.forEach(job => {
+                    const key = `${job.company}-${job.role}`;
+                    if (!processedKeys.has(key)) {
                         result.push(job);
                     }
                 });
@@ -210,6 +221,16 @@ function loadJobPosts() {
 // Initialize job posts list
 export const myJobPostList = loadJobPosts();
 
+// Reload job posts from localStorage (useful when data might have changed)
+// This modifies the existing array in place so all modules see the changes
+export function reloadJobPosts() {
+    const newData = loadJobPosts();
+    // Clear existing array and add new data
+    myJobPostList.length = 0;
+    myJobPostList.push(...newData);
+    return myJobPostList;
+}
+
 // Save to localStorage
 export function saveJobPosts() {
     try {
@@ -217,4 +238,121 @@ export function saveJobPosts() {
     } catch (e) {
         console.error('Error saving job posts to localStorage:', e);
     }
+}
+
+// ==================== USER REGISTRATION & AUTHENTICATION ====================
+
+// Default users (for testing/demo purposes)
+const defaultUsers = [
+    {
+        id: '1',
+        fullName: 'Ryan Trahan',
+        email: 'ryan@cpp.edu',
+        password: 'password123', // In production, this should be hashed
+        role: 'candidate',
+        createdAt: new Date().toISOString()
+    },
+    {
+        id: '2',
+        fullName: 'Neil Sims',
+        email: 'neil.sims@flowbite.com',
+        password: 'password123', // In production, this should be hashed
+        role: 'employer',
+        createdAt: new Date().toISOString()
+    }
+];
+
+// Load users from localStorage or use default
+function loadUsers() {
+    const stored = localStorage.getItem('users');
+    if (stored) {
+        try {
+            const parsed = JSON.parse(stored);
+            if (parsed && parsed.length > 0) {
+                // Merge defaults with stored users (avoid duplicates by email)
+                const result = [...defaultUsers];
+                const defaultEmails = new Set(defaultUsers.map(user => user.email.toLowerCase()));
+                
+                parsed.forEach(user => {
+                    if (!defaultEmails.has(user.email.toLowerCase())) {
+                        result.push(user);
+                    }
+                });
+                
+                return result;
+            }
+            return defaultUsers;
+        } catch (e) {
+            console.error('Error parsing stored users:', e);
+            return defaultUsers;
+        }
+    }
+    return defaultUsers;
+}
+
+// Initialize users list
+export let usersList = loadUsers();
+
+// Reload users from localStorage
+export function reloadUsers() {
+    usersList = loadUsers();
+    return usersList;
+}
+
+// Save users to localStorage
+export function saveUsers() {
+    try {
+        localStorage.setItem('users', JSON.stringify(usersList));
+    } catch (e) {
+        console.error('Error saving users to localStorage:', e);
+    }
+}
+
+// Register a new user
+export function registerUser(fullName, email, password, role) {
+    // Check if user already exists
+    const existingUser = usersList.find(user => user.email.toLowerCase() === email.toLowerCase());
+    if (existingUser) {
+        return { success: false, message: 'User with this email already exists' };
+    }
+
+    // Create new user
+    const newUser = {
+        id: Date.now().toString(),
+        fullName: fullName.trim(),
+        email: email.trim().toLowerCase(),
+        password: password, // In production, hash this password
+        role: role, // 'candidate' or 'employer'
+        createdAt: new Date().toISOString()
+    };
+
+    usersList.push(newUser);
+    saveUsers();
+
+    return { success: true, user: newUser };
+}
+
+// Authenticate user (login)
+export function authenticateUser(email, password) {
+    const user = usersList.find(
+        u => u.email.toLowerCase() === email.toLowerCase() && u.password === password
+    );
+
+    if (user) {
+        // Return user without password
+        const { password: _, ...userWithoutPassword } = user;
+        return { success: true, user: userWithoutPassword };
+    }
+
+    return { success: false, message: 'Invalid email or password' };
+}
+
+// Get user by email
+export function getUserByEmail(email) {
+    const user = usersList.find(u => u.email.toLowerCase() === email.toLowerCase());
+    if (user) {
+        const { password: _, ...userWithoutPassword } = user;
+        return userWithoutPassword;
+    }
+    return null;
 }
