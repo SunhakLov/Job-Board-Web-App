@@ -69,14 +69,6 @@ const defaultJobPosts = [
                 candidateStatus: ["Offer", "green"],
                 candidatePhoto: "images/ryan-trahan-smile.jpg",
                 candidateNote: ""
-            },
-            {
-                candidateID: "1235",
-                candidateName: "Sunhak",
-                candidateEmail: "sunhak@cpp.edu",
-                candidateStatus: ["Reject", "red"],
-                candidatePhoto: "images/ryan-trahan-smile.jpg",
-                candidateNote: ""
             }
         ]
     },
@@ -187,18 +179,18 @@ function loadJobPosts() {
                 const defaultKeys = new Set(
                     defaultJobPosts.map(job => `${job.company}-${job.role}`)
                 );
-                
+
                 // Start with stored jobs (which may include modified defaults)
                 const result = [];
                 const processedKeys = new Set();
-                
+
                 // First, add all stored jobs (this includes modified defaults)
                 parsed.forEach(job => {
                     const key = `${job.company}-${job.role}`;
                     result.push(job);
                     processedKeys.add(key);
                 });
-                
+
                 // Then, add any default jobs that weren't in stored data
                 defaultJobPosts.forEach(job => {
                     const key = `${job.company}-${job.role}`;
@@ -206,7 +198,7 @@ function loadJobPosts() {
                         result.push(job);
                     }
                 });
-                
+
                 return result;
             }
             return defaultJobPosts;
@@ -272,13 +264,13 @@ function loadUsers() {
                 // Merge defaults with stored users (avoid duplicates by email)
                 const result = [...defaultUsers];
                 const defaultEmails = new Set(defaultUsers.map(user => user.email.toLowerCase()));
-                
+
                 parsed.forEach(user => {
                     if (!defaultEmails.has(user.email.toLowerCase())) {
                         result.push(user);
                     }
                 });
-                
+
                 return result;
             }
             return defaultUsers;
