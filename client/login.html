@@ -12,12 +12,12 @@
 <body class="flex items-center justify-center min-h-screen bg-gray-100">
   <div class="w-full max-w-sm p-6 bg-white rounded-2xl shadow-md">
     <h1 class="text-2xl font-bold mb-4 text-center">Login</h1>
-    
+
     <!-- User Type Selection -->
     <div class="mb-4">
       <label class="block mb-2 text-sm font-medium text-gray-700">I want to login as:</label>
       <div class="grid grid-cols-2 gap-2">
-        <button type="button" id="candidateBtn" 
+        <button type="button" id="candidateBtn"
           class="user-type-btn px-3 py-2 border-2 border-blue-500 rounded-lg font-medium bg-blue-100 text-blue-700 hover:bg-blue-200">
           Candidate
         </button>
@@ -33,7 +33,8 @@
         class="w-full mb-3 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
       <input type="password" id="password" placeholder="Password" required
         class="w-full mb-3 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
-      <button type="submit" id="loginBtn" class="w-full py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600">
+      <button type="submit" id="loginBtn"
+        class="w-full py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600">
         Login
       </button>
     </form>
@@ -42,79 +43,7 @@
     </p>
   </div>
 
-  <script type="module">
-    import { authenticateUser, reloadUsers } from './javaScript/data.js';
-
-    let selectedUserType = 'candidate'; // Default to candidate
-
-    const candidateBtn = document.getElementById('candidateBtn');
-    const employerBtn = document.getElementById('employerBtn');
-    const loginForm = document.getElementById('loginForm');
-    const loginBtn = document.getElementById('loginBtn');
-
-    // User type selection
-    candidateBtn.addEventListener('click', () => {
-      selectedUserType = 'candidate';
-      candidateBtn.classList.remove('border-gray-300', 'bg-white', 'text-gray-700');
-      candidateBtn.classList.add('border-blue-500', 'bg-blue-100', 'text-blue-700');
-      employerBtn.classList.remove('border-blue-500', 'bg-blue-100', 'text-blue-700');
-      employerBtn.classList.add('border-gray-300', 'bg-white', 'text-gray-700');
-    });
-
-    employerBtn.addEventListener('click', () => {
-      selectedUserType = 'employer';
-      employerBtn.classList.remove('border-gray-300', 'bg-white', 'text-gray-700');
-      employerBtn.classList.add('border-blue-500', 'bg-blue-100', 'text-blue-700');
-      candidateBtn.classList.remove('border-blue-500', 'bg-blue-100', 'text-blue-700');
-      candidateBtn.classList.add('border-gray-300', 'bg-white', 'text-gray-700');
-    });
-
-    // Form submission
-    loginForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value;
-
-      // Validation
-      if (!email) {
-        alert('Please enter your email!');
-        return;
-      }
-
-      if (!password) {
-        alert('Please enter your password!');
-        return;
-      }
-
-      // Reload users to get latest data
-      reloadUsers();
-
-      // Authenticate user
-      const result = authenticateUser(email, password);
-
-      if (result.success) {
-        // Check if user role matches selected type
-        if (result.user.role !== selectedUserType) {
-          alert(`This account is registered as an ${result.user.role}. Please select the correct user type.`);
-          return;
-        }
-
-        // Store user info in localStorage (without password)
-        localStorage.setItem('currentUser', JSON.stringify(result.user));
-        localStorage.setItem('userType', selectedUserType);
-
-        // Redirect based on user type
-        if (selectedUserType === 'candidate') {
-          window.location.href = 'employee-profile.html';
-        } else {
-          window.location.href = 'employer-candidate.html';
-        }
-      } else {
-        alert(result.message || 'Invalid email or password. Please try again.');
-      }
-    });
-  </script>
+  <script type="module" src="javaScript/authentication/login.js"></script>
 </body>
 
 </html>

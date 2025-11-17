@@ -55,10 +55,10 @@
                             id="dropdown-user">
                             <div class="px-4 py-3" role="none">
                                 <p class="text-sm text-gray-900 dark:text-white" role="none">
-                                    Ryan Trahan
+                                    Ryan Campbell
                                 </p>
                                 <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                                    ryan@cpp.edu
+                                    campbellr@cpp.edu
                                 </p>
                             </div>
                             <ul class="py-1" role="none">
@@ -150,7 +150,7 @@
                         <div class="bg-white border-2 border-gray-200 rounded-lg p-6 shadow-sm">
                             <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
                                 <div class="relative">
-                                    <img id="profileImage" src="./images/ryan-trahan-smile.jpg" alt="Profile Picture"
+                                    <img id="profileImage" src="./images/default.jpg" alt="Profile Picture"
                                         class="w-32 h-32 rounded-full object-cover border-4 border-[#005030] bg-gray-100">
                                     <button type="button" id="changeImageBtn"
                                         class="absolute bottom-0 right-0 bg-[#a4d65e] text-[#005030] rounded-full p-2 hover:bg-yellow-400 transition-all duration-200">
@@ -188,7 +188,7 @@
                                     </label>
                                     <input type="text" id="lastName" name="lastName" required
                                         class="bg-gray-50 border border-gray-300 text-[#005030] text-sm rounded-lg focus:ring-[#a4d65e] focus:border-[#a4d65e] block w-full p-3"
-                                        placeholder="Enter last name" value="Trahan">
+                                        placeholder="Enter last name" value="Campbell">
                                 </div>
 
                                 <div>
@@ -197,7 +197,7 @@
                                     </label>
                                     <input type="email" id="email" name="email" required
                                         class="bg-gray-50 border border-gray-300 text-[#005030] text-sm rounded-lg focus:ring-[#a4d65e] focus:border-[#a4d65e] block w-full p-3"
-                                        placeholder="your.email@example.com" value="ryan@cpp.edu">
+                                        placeholder="your.email@example.com" value="campbellr@cpp.edu">
                                 </div>
 
                                 <div>
@@ -269,126 +269,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
     <!-- Profile Script -->
-    <script>
-        // Image upload functionality
-        const changeImageBtn = document.getElementById('changeImageBtn');
-        const imageUpload = document.getElementById('imageUpload');
-        const profileImage = document.getElementById('profileImage');
-
-        changeImageBtn.addEventListener('click', () => {
-            imageUpload.click();
-        });
-
-        imageUpload.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (event) => {
-                    profileImage.src = event.target.result;
-                    // Save profile image to localStorage
-                    try {
-                        let profileData = {};
-                        const saved = localStorage.getItem('employeeProfile');
-                        if (saved) {
-                            profileData = JSON.parse(saved);
-                        }
-                        profileData.profileImage = event.target.result;
-                        localStorage.setItem('employeeProfile', JSON.stringify(profileData));
-                    } catch (e) {
-                        console.warn('Could not save profile image:', e);
-                    }
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-
-        // Load saved profile data on page load
-        window.addEventListener('DOMContentLoaded', () => {
-            try {
-                const saved = localStorage.getItem('employeeProfile');
-                if (saved) {
-                    const profileData = JSON.parse(saved);
-
-                    // Load profile image
-                    if (profileData.profileImage) {
-                        profileImage.src = profileData.profileImage;
-                    } else {
-                        // Default to Ryan Trahan image
-                        profileImage.src = './images/ryan-trahan-smile.jpg';
-                    }
-
-                    // Load form fields
-                    if (profileData.firstName) document.getElementById('firstName').value = profileData.firstName;
-                    if (profileData.lastName) document.getElementById('lastName').value = profileData.lastName;
-                    if (profileData.email) document.getElementById('email').value = profileData.email;
-                    if (profileData.phone) document.getElementById('phone').value = profileData.phone;
-                    if (profileData.location) document.getElementById('location').value = profileData.location;
-                    if (profileData.linkedin) document.getElementById('linkedin').value = profileData.linkedin;
-                    if (profileData.github) document.getElementById('github').value = profileData.github;
-                    if (profileData.portfolio) document.getElementById('portfolio').value = profileData.portfolio;
-                } else {
-                    // Set default profile image if no saved data
-                    profileImage.src = './images/ryan-trahan-smile.jpg';
-                }
-            } catch (e) {
-                console.warn('Could not load profile data:', e);
-                // Set default profile image on error
-                profileImage.src = './images/ryan-trahan-smile.jpg';
-            }
-        });
-
-        // Form submission
-        const profileForm = document.getElementById('profileForm');
-        const saveBtn = document.getElementById('saveBtn');
-        const cancelBtn = document.getElementById('cancelBtn');
-
-        profileForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            // Get form data
-            const formData = new FormData(profileForm);
-            const profileData = {};
-            formData.forEach((value, key) => {
-                profileData[key] = value;
-            });
-
-            // Save profile image if it exists
-            if (profileImage.src && profileImage.src !== 'https://flowbite.com/docs/images/logo.svg') {
-                profileData.profileImage = profileImage.src;
-            }
-
-
-            // Save to localStorage
-            try {
-                localStorage.setItem('employeeProfile', JSON.stringify(profileData));
-            } catch (e) {
-                console.warn('Could not save to localStorage:', e);
-            }
-
-            // Simulate saving (in real app, this would send to server)
-            console.log('Saving profile data:', profileData);
-
-            // Show success message
-            saveBtn.innerHTML = '<i class="fa-solid fa-check mr-2"></i>Saved!';
-            saveBtn.classList.remove('bg-[#005030]', 'hover:bg-[#a4d65e]');
-            saveBtn.classList.add('bg-green-500', 'hover:bg-green-600');
-
-            setTimeout(() => {
-                saveBtn.innerHTML = '<i class="fa-solid fa-floppy-disk mr-2"></i>Save Changes';
-                saveBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
-                saveBtn.classList.add('bg-[#005030]', 'hover:bg-[#a4d65e]');
-            }, 2000);
-        });
-
-        cancelBtn.addEventListener('click', () => {
-            if (confirm('Are you sure you want to cancel? All unsaved changes will be lost.')) {
-                profileForm.reset();
-                // Reset image to default (Ryan Trahan)
-                profileImage.src = './images/ryan-trahan-smile.jpg';
-            }
-        });
-    </script>
+    <script type="module" src="javaScript/employee-page/profile.js"></script>
 
 </body>
 

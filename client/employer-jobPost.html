@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,19 +10,12 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
   <!-- Flowbite (same as other pages) -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
 
   <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Team custom styles -->
   <link rel="stylesheet" href="./css/styles.css" />
@@ -30,12 +24,11 @@
 <body class="font-mono text-[#005030] h-screen">
   <!-- Top nav -->
   <header class="bg-white mx-auto">
-    <nav
-      class="bg-[linear-gradient(90deg,#FFB81C_32%,#A4D65E_100%)]  border-gray-200 fixed top-0 right-0 left-0 z-50">
+    <nav class="bg-[linear-gradient(90deg,#FFB81C_32%,#A4D65E_100%)]  border-gray-200 fixed top-0 right-0 left-0 z-50">
       <div class="max-w-screen w-[95vw] flex gap-6 items-center justify-between mx-auto p-8 ">
         <div class="flex items-center justify-start rtl:justify-end gap-4">
-          <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar"
-            aria-controls="logo-sidebar" type="button"
+          <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
+            type="button"
             class="inline-flex items-center p-2 text-sm text-white bg-[#005030] rounded-lg sm:hidden hover:bg-[#a4d65e] hover:text-[#005030] outline-none focus:ring-2 focus:ring-gray-200">
             <span class="sr-only">Open sidebar</span>
             <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
@@ -61,7 +54,8 @@
                 <i class="fa-jelly fa-regular fa-user"></i>
               </button>
             </div>
-            <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-sm shadow-sm dark:bg-gray-700 dark:divide-gray-600"
+            <div
+              class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-sm shadow-sm dark:bg-gray-700 dark:divide-gray-600"
               id="dropdown-user">
               <div class="px-4 py-3" role="none">
                 <p class="text-sm text-gray-900 dark:text-white" role="none">
@@ -99,9 +93,9 @@
         <li>
           <a href="employer-candidate.html"
             class="flex items-center p-2 rounded-lg text-white hover:bg-[#a4d65e] group">
-            <svg class="shrink-0 w-5 h-5 text-white transition duration-75 group-hover:text-[#005030] group-hover:font-bold"
-              aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-              viewBox="0 0 20 18">
+            <svg
+              class="shrink-0 w-5 h-5 text-white transition duration-75 group-hover:text-[#005030] group-hover:font-bold"
+              aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
               <path
                 d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
             </svg>
@@ -113,16 +107,14 @@
           <a href="employer-jobPost.html"
             class="flex items-center p-2 rounded-lg hover:bg-[#a4d65e] group selected bg-[#a4d65e] text-[#005030]">
             <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-[#005030] group-hover:font-bold"
-              aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-              viewBox="0 0 20 20">
+              aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
               <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z" />
               <path
                 d="M6.737 11.061a2.961 2.961 0 0 1 .81-1.515l6.117-6.116A4.839 4.839 0 0 1 16 2.141V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18v-3.093l-1.546 1.546c-.413.413-.94.695-1.513.81l-3.4.679a2.947 2.947 0 0 1-1.85-.227 2.96 2.96 0 0 1-1.635-3.257l.681-3.397Z" />
               <path
                 d="M8.961 16a.93.93 0 0 0 .189-.019l3.4-.679a.961.961 0 0 0 .49-.263l6.118-6.117a2.884 2.884 0 0 0-4.079-4.078l-6.117 6.117a.96.96 0 0 0-.263.491l-.679 3.4A.961.961 0 0 0 8.961 16Zm7.477-9.8a.958.958 0 0 1 .68-.281.961.961 0 0 1 .682 1.644l-.315.315-1.36-1.36.313-.318Zm-5.911 5.911 4.236-4.236 1.359 1.359-4.236 4.237-1.7.339.341-1.699Z" />
             </svg>
-            <span
-              class="flex-1 ms-3 whitespace-nowrap group-hover:text-[#005030] group-hover:font-bold">Post
+            <span class="flex-1 ms-3 whitespace-nowrap group-hover:text-[#005030] group-hover:font-bold">Post
               Jobs</span>
           </a>
         </li>
@@ -141,10 +133,8 @@
         </p>
       </div>
 
-      <button
-        id="newJobPostBtn"
-        class="inline-flex items-center gap-2 rounded-lg bg-[#005030] px-4 py-2 text-sm font-semibold text-white hover:bg-[#023a22] transition"
-      >
+      <button id="newJobPostBtn"
+        class="inline-flex items-center gap-2 rounded-lg bg-[#005030] px-4 py-2 text-sm font-semibold text-white hover:bg-[#023a22] transition">
         <i class="fa-solid fa-plus"></i>
         <span>New Job Post</span>
       </button>
@@ -152,9 +142,7 @@
 
     <!-- Table of job posts (from data.js + anything newly added) -->
     <section class="bg-white rounded-lg shadow-sm border border-gray-200 max-w-6xl mx-auto">
-      <header
-        class="px-4 py-3 border-b border-gray-100 flex items-center justify-between"
-      >
+      <header class="px-4 py-3 border-b border-gray-100 flex items-center justify-between">
         <h2 class="font-semibold">Job Postings</h2>
         <p class="text-xs text-gray-500">
         </p>
@@ -174,10 +162,7 @@
               <th scope="col" class="px-4 py-3 text-center">Actions</th>
             </tr>
           </thead>
-          <tbody
-            id="jobPostTableBody"
-            class="divide-y divide-gray-100"
-          >
+          <tbody id="jobPostTableBody" class="divide-y divide-gray-100">
             <!-- Rows rendered by jobPostPage.js -->
           </tbody>
         </table>
@@ -186,24 +171,15 @@
   </main>
 
 
-  
+
   <!-- Modal: New Job Post -->
-  <div
-    id="newJob"
-    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40"
-  >
+  <div id="newJob" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40">
     <div class="bg-white w-full max-w-lg rounded-lg shadow-lg mx-4">
-      <div
-        class="flex items-center justify-between px-6 py-4 border-b border-gray-100"
-      >
+      <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
         <h2 class="text-lg font-bold text-[#005030]">
           Create a New Job Post
         </h2>
-        <button
-          type="button"
-          id="closeBtn"
-          class="text-gray-500 hover:text-gray-700"
-        >
+        <button type="button" id="closeBtn" class="text-gray-500 hover:text-gray-700">
           <span class="sr-only">Close</span>
           <i class="fa-solid fa-xmark"></i>
         </button>
@@ -212,95 +188,39 @@
       <form id="jobPostForm" class="px-6 py-4 space-y-4">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label
-              for="company"
-              class="block text-xs font-semibold text-gray-600 mb-1"
-              >Company name</label
-            >
-            <input
-              id="company"
-              name="company"
-              type="text"
-              required
-              class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-[#005030] focus:border-[#005030]"
-            />
+            <label for="company" class="block text-xs font-semibold text-gray-600 mb-1">Company name</label>
+            <input id="company" name="company" type="text" required
+              class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-[#005030] focus:border-[#005030]" />
           </div>
           <div>
-            <label
-              for="role"
-              class="block text-xs font-semibold text-gray-600 mb-1"
-              >Role / Position</label
-            >
-            <input
-              id="role"
-              name="role"
-              type="text"
-              required
-              placeholder="Software Engineer"
-              class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-[#005030] focus:border-[#005030]"
-            />
+            <label for="role" class="block text-xs font-semibold text-gray-600 mb-1">Role / Position</label>
+            <input id="role" name="role" type="text" required placeholder="Software Engineer"
+              class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-[#005030] focus:border-[#005030]" />
           </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label
-              for="paidRate"
-              class="block text-xs font-semibold text-gray-600 mb-1"
-              >Paid rate ($/hr)</label
-            >
-            <input
-              id="paidRate"
-              name="paidRate"
-              type="number"
-              min="0"
-              step="1"
-              required
-              class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-[#005030] focus:border-[#005030]"
-            />
+            <label for="paidRate" class="block text-xs font-semibold text-gray-600 mb-1">Paid rate ($/hr)</label>
+            <input id="paidRate" name="paidRate" type="number" min="0" step="1" required
+              class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-[#005030] focus:border-[#005030]" />
           </div>
           <div>
-            <label
-              for="startDate"
-              class="block text-xs font-semibold text-gray-600 mb-1"
-              >Start date</label
-            >
-            <input
-              id="startDate"
-              name="startDate"
-              type="date"
-              required
-              class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-[#005030] focus:border-[#005030]"
-            />
+            <label for="startDate" class="block text-xs font-semibold text-gray-600 mb-1">Start date</label>
+            <input id="startDate" name="startDate" type="date" required
+              class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-[#005030] focus:border-[#005030]" />
           </div>
           <div>
-            <label
-              for="endDate"
-              class="block text-xs font-semibold text-gray-600 mb-1"
-              >End date</label
-            >
-            <input
-              id="endDate"
-              name="endDate"
-              type="date"
-              required
-              class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-[#005030] focus:border-[#005030]"
-            />
+            <label for="endDate" class="block text-xs font-semibold text-gray-600 mb-1">End date</label>
+            <input id="endDate" name="endDate" type="date" required
+              class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-[#005030] focus:border-[#005030]" />
           </div>
         </div>
 
         <div>
-          <label
-            for="typeEmployment"
-            class="block text-xs font-semibold text-gray-600 mb-1"
-            >Type of employment</label
-          >
-          <select
-            id="typeEmployment"
-            name="typeEmployment"
-            required
-            class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white focus:ring-[#005030] focus:border-[#005030]"
-          >
+          <label for="typeEmployment" class="block text-xs font-semibold text-gray-600 mb-1">Type of employment</label>
+          <select id="typeEmployment" name="typeEmployment" required
+            class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm bg-white focus:ring-[#005030] focus:border-[#005030]">
             <option value="" disabled selected>Select one</option>
             <option value="Internship">Internship</option>
             <option value="Co-op">Co-op</option>
@@ -312,18 +232,12 @@
 
 
         <div class="flex items-center justify-end gap-3 pt-2">
-          <button
-            type="button"
-            id="cancelBtn"
-            class="px-4 py-2 text-xs font-semibold rounded-md border border-gray-200 text-gray-600 hover:bg-gray-50"
-          >
+          <button type="button" id="cancelBtn"
+            class="px-4 py-2 text-xs font-semibold rounded-md border border-gray-200 text-gray-600 hover:bg-gray-50">
             Cancel
           </button>
-          <button
-            type="submit"
-            id = "submitButton"
-            class="px-4 py-2 text-xs font-semibold rounded-md bg-[#005030] text-white hover:bg-[#023a22]"
-          >
+          <button type="submit" id="submitButton"
+            class="px-4 py-2 text-xs font-semibold rounded-md bg-[#005030] text-white hover:bg-[#023a22]">
             Submit job post
           </button>
         </div>
@@ -335,9 +249,7 @@
   <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
   <!-- Page specific logic -->
-  <script
-    src="javaScript/employer-page/jobPostPage.js"
-    type="module"
-  ></script>
+  <script src="javaScript/employer-page/jobPostPage.js" type="module"></script>
 </body>
+
 </html>
